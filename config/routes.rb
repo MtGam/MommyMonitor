@@ -1,14 +1,22 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
+  #get 'sessions/new'
 
   get 'sessions/create'
 
   get 'sessions/destroy'
 
   resources :users
-  resources :comments 
+  resources :comments
 
   root to: 'home#home'
+
+  get 'doc_admin' => 'doc_admin#index'
+  controller :session do
+    get 'login' => new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+
 
   # get 'comments/index'
   #

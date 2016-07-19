@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorize, only: [:new, :create, :index]
+
   def index
     @users = User.all
   end
@@ -15,9 +18,9 @@ class UsersController < ApplicationController
     @user = User.new
 
     if @user.save
-      redirect_to user_url(@user), notice: "Signed up!"
+      format.html {redirect_to user_url, notice: "Sucessfully signed up!" }
     else
-      render :new, notice: "Please try again."
+      format.html render :new, notice: "Please try again."
     end
   end
 
@@ -28,8 +31,11 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    if @user.update_attributes(user_params)
-      redirect_to user_url(@user)
+    if @user.update(user_params)
+      format.html {redirect_to user_url, notice: "User was successfully updated." }
+
+    else
+      format.html { render:edit }
     end
   end
 
