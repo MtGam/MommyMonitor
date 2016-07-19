@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
 
   resources :users
-  resources :comments 
+  resources :comments
 
-  root to: 'home#home'
+  root 'home#home'
 
   # get 'comments/index'
   #
