@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :users
   resources :comments
 
-  root to: 'home#home'
+  root 'home#home'
 
   get 'doc_admin' => 'doc_admin#index'
   controller :session do
