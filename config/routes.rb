@@ -1,15 +1,22 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   #get 'sessions/new'
 
   get 'sessions/create'
 
   get 'sessions/destroy'
+=======
+>>>>>>> 4fbe067284fb185e2c01edbfb0dc89b14dd48419
 
   resources :users
   resources :comments
 
+  resources :sessions, only: [:new, :create, :destroy]
+
+
   root 'home#home'
 
+<<<<<<< HEAD
   get 'doc_admin' => 'doc_admin#index'
   controller :session do
     get 'login' => new
@@ -17,6 +24,14 @@ Rails.application.routes.draw do
     delete 'logout' => :destroy
   end
 
+=======
+
+  # get 'sessions/new'
+  #
+  # get 'sessions/create'
+  #
+  # get 'sessions/destroy'
+>>>>>>> 4fbe067284fb185e2c01edbfb0dc89b14dd48419
 
   # get 'comments/index'
   #
