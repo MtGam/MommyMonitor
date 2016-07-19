@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
-  get 'sessions/create'
-
-  get 'sessions/destroy'
 
   resources :users
-  resources :comments 
-
+  resources :comments
+  resources :sessions, only: [:new, :create, :destroy]
   root to: 'home#home'
+
+  # get 'sessions/new'
+  #
+  # get 'sessions/create'
+  #
+  # get 'sessions/destroy'
 
   # get 'comments/index'
   #
