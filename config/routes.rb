@@ -2,8 +2,12 @@ Rails.application.routes.draw do
 
   resources :users
   resources :comments
+
   resources :sessions, only: [:new, :create, :destroy]
-  root to: 'home#home'
+
+
+  root 'home#home'
+
 
   # get 'sessions/new'
   #
