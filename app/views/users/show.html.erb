@@ -1,2 +1,9 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>Mommy's Profile</h1>
+
+<p><%="Hi Mommy #{current_user.first_name}"%></p>
+
+
+<% if notice %>
+<p id="notice"> <%= notice %>
+</p>
+<%end%>

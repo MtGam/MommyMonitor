@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    
+
     <%= yield %>
 
       <p class="user-info">
@@ -19,6 +19,8 @@
           <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
         <% end %>
       </p>
+
+    <%= console %>
 
   </body>
 </html>
