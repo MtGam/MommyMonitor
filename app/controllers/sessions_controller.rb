@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-  skip_before_action :authorize
+  # skip_before_action :authorize
   def new
   end
 
@@ -27,10 +27,10 @@ class SessionsController < ApplicationController
     else
       redirect_to new_session_path, alert: "Something went wrong. Please try again."
   end
+end
 
   def destroy
     self.current_user = nil
     redirect_to root_path, notice: "You are now signed out."
-
   end
 end
