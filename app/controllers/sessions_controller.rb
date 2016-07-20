@@ -26,6 +26,7 @@ class SessionsController < ApplicationController
       redirect_to user_url(current_user), notice: "Hello, #{user.first_name}!"
     else
       redirect_to new_session_path, alert: "Something went wrong. Please try again."
+    end 
   end
 
   def destroy
