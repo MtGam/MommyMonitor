@@ -22,8 +22,8 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
 
     if user && user.authenticate(params[:password])
-      current_user = user
-      redirect_to user_url(current_user), notice: "Hello, #{user.first_name}!"
+      session[:user_id] = user.id
+      redirect_to user_url(current_user), notice: "You are now signed in!"
     else
       redirect_to new_session_path, alert: "Something went wrong. Please try again."
     end
@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
 
 
   def destroy
-    # self.current_user = nil
+    current_user = nil
     redirect_to root_path, notice: "You are now signed out."
   end
 end
