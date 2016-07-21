@@ -4,58 +4,6 @@
 
 <%= render 'user_form' %>
 
-<h1>New Mommy</h1>
+<%= render 'mommy_form' %>
 
-<%= form_for :mommy do |f| %>
-<div class="field">
-  <p>
- <%= f.label :date_of_birth %>
- <%= f.date_field :dob %>
-</p>
-</div>
-
-<div class="field">
-<p>
- <%= f.label :stage_of_pregnancy %>
- <%= f.text_field :trimester %>
-</p>
-</div>
-
-<div class="field">
-<p>
- <%= f.label :number_of_children %>
- <%= f.number_field :children %>
-</p>
-</div>
-
-<p>
-<%= f.submit %>
-</p>
-
-<% end %>
-
-<h1>New Doctor</h1>
-
-
-<%= form_for :doc do |f| %>
-
-<div class="field">
-<p>
- <%= f.label :qualifications %>
- <%= f.text_field :doc_qual %>
-</p>
-</div>
-
-
-<div class="field">
-<p>
- <%= f.label :registration_number %>
- <%= f.text_field :regis_number%>
-</p>
-</div>
-
-<p>
-<%= f.submit %>
-</p>
-
-<% end %>
+<%= render 'doc_form' %>
