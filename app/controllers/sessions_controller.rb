@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
 
 
   def destroy
-    current_user = nil
+    session[:user_id] = nil
     redirect_to root_path, notice: "You are now signed out."
   end
 end
