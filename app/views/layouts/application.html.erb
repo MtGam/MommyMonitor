@@ -7,7 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script type='text/javascript' src='/assets/user_signup.js'></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 
   </head>
 
@@ -16,7 +16,7 @@
     <p class="user-info">
       <% current_user %>
       <% if current_user %>
-      Signed in as <%= current_user.email %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
+      Signed in as <%= current_user.email %>. | <%= link_to "Home", root_path %> | <%= link_to "Log out", session_path("current"), :method => :delete %>
       <% else %>
         <%= link_to "Log in", new_session_path %> | <%= link_to "Sign up", new_user_path %>
       <% end %>
