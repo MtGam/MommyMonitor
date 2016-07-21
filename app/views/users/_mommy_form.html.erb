@@ -1,24 +1,24 @@
-<h1>New Mommy</h1>
+<%= form_for @user do |f| %>
 
-<%= form_for :mommy do |f| %>
-<div class="field">
-  <p>
- <%= f.label :date_of_birth %>
- <%= f.date_field :dob %>
-</p>
-</div>
+  <div class="field">
+    <p>
+     <%= f.label :date_of_birth %>
+     <%= f.date_field :dob %>
+    </p>
+  </div>
 
-<div class="field">
-<p>
- <%= f.label :stage_of_pregnancy %>
- <%= f.text_field :trimester %>
-</p>
-</div>
+  <div class="field">
+    <p>
+     <%= f.label :stage_of_pregnancy %>
+     <%= f.text_field :trimester %>
+    </p>
+  </div>
 
-<div class="field">
-<p>
- <%= f.label :number_of_children %>
- <%= f.number_field :children %>
-</p>
-</div>
-<% end %>
+  <div class="field">
+    <p>
+     <%= f.label :number_of_children %>
+     <%= f.number_field :children %>
+    </p>
+  </div>
+
+  <% end %>
