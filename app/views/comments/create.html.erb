@@ -1,2 +1,17 @@
 <h1>Comments#create</h1>
-<p>Find me in app/views/comments/create.html.erb</p>
+<!-- <p>Find me in app/views/comments/create.html.erb</p> -->
+
+
+<%= form_for :response do |f| %>
+<div class="field">
+  <p>
+     <%= f.label :comment %>
+     <%= f.text_area :response %>
+</p>
+</div>
+
+<p>
+  <%= f.submit %>
+</p>
+
+<% end %>

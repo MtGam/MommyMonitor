@@ -15,9 +15,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new
 
      if @comment.save
-       redirect_to user_url
+       redirect_to user_comments_path(@user), :flash => { :success => "Message" }
      else
-       render :new
+       render :index, :flash => { :fail => "failed!" }
      end
   end
 
@@ -34,4 +34,5 @@ class CommentsController < ApplicationController
       render :new
     end
   end
+
 end

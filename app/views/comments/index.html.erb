@@ -1,2 +1,22 @@
 <h1>Comments#index</h1>
-<p>Find me in app/views/comments/index.html.erb</p>
+<!-- <p>Find me in app/views/comments/index.html.erb</p> -->
+
+<%= form_for :response do |f| %>
+
+
+<div class="field">
+  <p>
+     <%= f.label :comment %>
+  </p>
+
+  <p>
+      <%= f.text_area :response %>
+  </p>
+
+</div>
+
+<p>
+  <%= f.submit %>
+</p>
+
+<% end %>
