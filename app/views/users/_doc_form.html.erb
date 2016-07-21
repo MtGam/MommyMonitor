@@ -1,0 +1,21 @@
+<!-- <h1>New Doctor</h1> -->
+
+
+<%= form_for :doc do |f| %>
+
+<div class="field">
+  <p>
+   <%= f.label :qualifications %>
+   <%= f.text_field :doc_qual %>
+  </p>
+</div>
+
+
+<div class="field">
+<p>
+ <%= f.label :registration_number %>
+ <%= f.text_field :regis_number%>
+</p>
+</div>
+
+<% end %>
