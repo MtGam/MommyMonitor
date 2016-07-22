@@ -12,7 +12,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new
+    @comment = Comment.new(comment_params)
+    @comment.author = current_user
 
      if @comment.save
        redirect_to user_comments_path(@user), :flash => { :success => "Message" }
@@ -33,6 +34,12 @@ class CommentsController < ApplicationController
     else
       render :new
     end
+  end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:response, :mother_id)
   end
 
 end
