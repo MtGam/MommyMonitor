@@ -5,23 +5,26 @@
       <%= form_for @user do |f| %>
 
       <div class="field">
-        <%= render 'user_form' %>
+        <%= render 'user_form', f: f %>
+
       </div>
 
       <div class="role">
         <h4>Click here if you're a Mommy!</h4>
-        <%= render 'mommy_form' %>
+        <%= render 'mommy_form', f: f %>
+
       </div>
 
       <div class="role">
         <h4>Click here if you're a Doctor!</h4>
-        <%= render 'doc_form' %>
+
+        <%= render 'doc_form', f: f %>
       </div>
 
       <div>
-        <p><%= f.submit "Submit" %></p>
+        <%= f.submit 'Submit' %>
       </div>
 
       <% end %>
-  
+
 </div>
