@@ -1,23 +1,27 @@
-<h1>New User</h1>
+<div class="container">
 
-<%= form_for @user do |f| %>
+    <h2>Sign Up Now</h2>
 
-<div class="role">
-  <%= render 'user_form' %>
+      <%= form_for @user do |f| %>
+
+      <div class="field">
+        <%= render 'user_form' %>
+      </div>
+
+      <div class="role">
+        <h4>Click here if you're a Mommy!</h4>
+        <%= render 'mommy_form' %>
+      </div>
+
+      <div class="role">
+        <h4>Click here if you're a Doctor!</h4>
+        <%= render 'doc_form' %>
+      </div>
+
+      <div>
+        <p><%= f.submit "Submit" %></p>
+      </div>
+
+      <% end %>
+  
 </div>
-
-<div class="role">
-  <h3>Mommy Form</h3>
-  <%= render 'mommy_form' %>
-</div>
-
-<div class="role">
-  <h3>Doctor Form</h3>
-  <%= render 'doc_form' %>
-</div>
-
-<div>
-  <p><%= f.submit "Sign Up" %></p>
-</div>
-
-<% end %>

@@ -13,50 +13,49 @@
   <div class="field">
     <p>
     <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, placeholder: "First Name" %>
     </p>
   </div>
 
   <div class="field">
     <p>
     <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, placeholder: "Last Name" %>
     </p>
   </div>
 
   <div class="field">
     <p>
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, placeholder: "Email" %>
     </p>
   </div>
 
   <div class="field">
     <p>
     <%= f.label :phone %>
-    <%= f.text_field :phone %>
+    <%= f.text_field :phone, placeholder: "Phone Number" %>
     </p>
   </div>
 
   <div class="field">
     <p>
     <%= f.label :address %>
-    <%= f.text_field :address %>
+    <%= f.text_field :address, placeholder: "eg. 1 Street, City, Postal" %>
     </p>
   </div>
 
   <div class="field">
     <p>
     <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, placeholder: "Password" %>
     </p>
   </div>
 
   <div class="field">
     <p>
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, placeholder: "Password confirmation" %>
     </p>
   </div>
-
 <% end %>
