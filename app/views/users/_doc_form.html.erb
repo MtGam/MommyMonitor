@@ -1,9 +1,9 @@
-<%= form_for @user do |f| %>
+<%#= form_for @user do |f| %>
 
 <div class="field">
   <p>
    <%= f.label :qualifications %>
-   <%= f.text_field :doc_qual %>
+   <%= f.text_field :doc_qual, placeholder: "Qualifications" %>
   </p>
 </div>
 
@@ -11,8 +11,6 @@
 <div class="field">
 <p>
  <%= f.label :registration_number %>
- <%= f.text_field :regis_number%>
+ <%= f.text_field :regis_number, placeholder: "Registration Number"%>
 </p>
 </div>
-
-<% end %>

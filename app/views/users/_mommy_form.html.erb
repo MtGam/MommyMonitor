@@ -1,24 +1,42 @@
-<%= form_for @user do |f| %>
+<%#= form_for @user do |f| %>
 
   <div class="field">
     <p>
-     <%= f.label :date_of_birth %>
-     <%= f.date_field :dob %>
+      <%= f.label :date_of_birth %>
+      <%= f.date_field :dob, placeholder: "Date of Birth" %>
     </p>
   </div>
 
   <div class="field">
     <p>
-     <%= f.label :stage_of_pregnancy %>
-     <%= f.text_field :trimester %>
+      <%= f.label :number_of_children %>
+      <%= f.number_field :children, placeholder: "Number of Children" %>
     </p>
   </div>
 
   <div class="field">
-    <p>
-     <%= f.label :number_of_children %>
-     <%= f.number_field :children %>
-    </p>
+      <p><%= label_tag :stage_of_pregnancy %>:</p>
+        <ul>
+          <li>
+            <%= f.label :tri_1, "First Trimester:"%>
+            <%= f.label :tri_1, "Yes", :value => "true" %>
+            <%= f.radio_button :tri_1, true %>
+            <%= f.label :tri_1, "No", :value => "false" %>
+            <%= f.radio_button :tri_1, false, :checked => true %>
+          </li>
+          <li>
+            <%= f.label :tri_2, "Second Trimester:"%>
+            <%= f.label :tri_2, "Yes", :value => "true" %>
+            <%= f.radio_button :tri_2, true %>
+            <%= f.label :tri_2, "No", :value => "false" %>
+            <%= f.radio_button :tri_2, false, :checked => true %>
+          </li>
+          <li>
+            <%= f.label :tri_3, "Third Trimester:"%>
+            <%= f.label :tri_3, "Yes", :value => "true" %>
+            <%= f.radio_button :tri_3, true %>
+            <%= f.label :tri_3, "No", :value => "false" %>
+            <%= f.radio_button :tri_3, false, :checked => true %>
+          </li>
+        </ul>
   </div>
-
-  <% end %>
