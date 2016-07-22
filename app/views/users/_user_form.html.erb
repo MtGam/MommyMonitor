@@ -1,62 +1,61 @@
 <%= form_for @user do |f| %>
-<% if @user.errors.any? %>
- <div class="error message">
-   <h2>Invalid form. Please try again.</h2>
-   <ul>
-     <% @user.errors.full_messages.each do |message| %>
-     <li><%= message %></li>
-     <% end %>
-   </ul>
- </div>
- <% end %>
+  <% if @user.errors.any? %>
+  <div class="error message">
+    <h2>Invalid form. Please try again.</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
 
- <div class="field">
-   <p>
-   <%= f.label :first_name %>
-   <%= f.text_field :first_name %>
-   </p>
- </div>
+  <div class="field">
+    <p>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, placeholder: "First Name" %>
+    </p>
+  </div>
 
- <div class="field">
-   <p>
-   <%= f.label :last_name %>
-   <%= f.text_field :last_name %>
-   </p>
- </div>
+  <div class="field">
+    <p>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, placeholder: "Last Name" %>
+    </p>
+  </div>
 
- <div class="field">
-   <p>
-   <%= f.label :email %>
-   <%= f.text_field :email %>
-   </p>
- </div>
+  <div class="field">
+    <p>
+    <%= f.label :email %>
+    <%= f.text_field :email, placeholder: "Email" %>
+    </p>
+  </div>
 
- <div class="field">
-   <p>
-   <%= f.label :phone %>
-   <%= f.text_field :phone %>
-   </p>
- </div>
+  <div class="field">
+    <p>
+    <%= f.label :phone %>
+    <%= f.text_field :phone, placeholder: "eg. 123-456-7890" %>
+    </p>
+  </div>
 
- <div class="field">
-   <p>
-   <%= f.label :address %>
-   <%= f.text_field :address %>
-   </p>
- </div>
+  <div class="field">
+    <p>
+    <%= f.label :address %>
+    <%= f.text_field :address, placeholder: "eg. 1 Street, City, Postal" %>
+    </p>
+  </div>
 
- <div class="field">
-   <p>
-   <%= f.label :password %>
-   <%= f.password_field :password %>
-   </p>
- </div>
+  <div class="field">
+    <p>
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: "Password" %>
+    </p>
+  </div>
 
- <div class="field">
-   <p>
-   <%= f.label :password_confirmation %>
-   <%= f.password_field :password_confirmation %>
-   </p>
- </div>
-
+  <div class="field">
+    <p>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, placeholder: "Password confirmation" %>
+    </p>
+  </div>
 <% end %>
