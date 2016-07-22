@@ -5,11 +5,18 @@ $(document).on('ready page:load', function(){
 });
 $(document).ready(function(){
     $("#r1").click(function(){
-        $('.role1').show();
-        $('.role2').hide();
+      $('#user_doc_qual').val('');
+      $('#user_regis_number').val('');
+      $('.role1').show();
+      $('.role2').hide();
+
     });
     $("#r2").click(function(){
-        $('.role2').show();
-        $('.role1').hide();
+      $('#user_dob').val('');
+      $('#user_children').val('');
+      $('#trimester').val('');
+      $('.role2').show();
+      $('.role1').hide();
     });
+
 });

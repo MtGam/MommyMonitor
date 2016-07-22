@@ -1,14 +1,27 @@
 <h1>Mommy's Profile</h1>
 
 <h1><%= "Hello Mommy #{@user.first_name.titleize}!"%></h1>
-<h1><%= "You are on your #{@user.trimester.upcase} stage of your pregnancy." %></h1>
 
 <h3>Your Info</h3>
 
-<p><%= "Name: #{user.first_name.titleize} #{user.last_name.titleize}" %></p>
+<p><%= "Name: #{@user.first_name.titleize} #{@user.last_name.titleize}" %></p>
 <p><%= "Phone Number: #{@user.phone}" %></p>
 <p><%= "Address: #{@user.address}" %></p>
 <p><%= "Email: #{@user.email}" %></p>
 <p><%= "Date of Birth: #{@user.dob}" %></p>
 <p><%= "Number of Children: #{@user.children}" %></p>
-<p><%= "Bio: #{@user.bio}" %></p>
+<p><%= @user.trimester %></p>
+
+<% if current_user.trimester == 1 %>
+
+  <h4>Trimester 1 Question Here</h4>
+
+<% elsif current_user.trimester == 2 %>
+
+  <h4>Trimester 2 Question Here</h4>
+
+<% else %>
+
+  <h4>Trimester 3 Question Here</h4>
+
+<% end %>

@@ -5,10 +5,6 @@ class User < ApplicationRecord
   validates :email, confirmation: true
   validates :password, length: {minimum: 7, too_short: "Password too short. Minimum 7 characters."}
 
-  validates_inclusion_of :tri_1, in: [true, false]
-  validates_inclusion_of :tri_2, in: [true, false]
-  validates_inclusion_of :tri_3, in: [true, false]
-
   has_secure_password
   has_many :comments
 end
