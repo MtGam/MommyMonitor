@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :users
-  resources :users, only: [:show, :new, :create]
-  resources :comments
+  resources :users do
+    resources :comments
+  end  
 
   resources :sessions, only: [:new, :create, :destroy]
 
