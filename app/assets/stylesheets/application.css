@@ -13,6 +13,41 @@
  *= require_tree .
  *= require_self
  */
- body{
-   background-image: url("");
+
+ * {
+    box-sizing: border-box;
+}
+
+ html {
+   background: url("/assets/mom-portrait.jpg") no-repeat bottom fixed;
+   background-size: no-repeat;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+   margin: 0;
+   padding: 0;
+   height: 100%;
+   width: 100%;
+   color: #000000;
  }
+
+ nav {
+    color: pink;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+ }
+
+ .container {
+     background-color: #ffe6ff;
+     opacity: 0.7;
+     width: 700px;
+     padding: 25px;
+     margin: 0 auto;
+ }
+
+a {
+  color: pink;
+}
