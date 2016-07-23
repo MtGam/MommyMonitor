@@ -1,0 +1,25 @@
+<h1>Second Trimester Question</h1>
+
+<p>1. Are you having an increase pelvic pressure and/or unusual discharge, eg. bleeding?</p>
+<ul>
+      <%= f.label :tri_1, "Yes", :value => "true" %>
+    <%= f.radio_button :tri_1, true %>
+    <%= f.label :tri_1, "No", :value => "false" %>
+    <%= f.radio_button :tri_1, false, :checked => true %>
+</ul>
+<p>2. Are you having headaches that are not relieved with over-the-counter
+  medications or have visual changes associated with them, persistent vomiting, and upper abdominal pain?</p>
+   <li>
+    <%= f.label :tri_2, "Yes", :value => "true" %>
+    <%= f.radio_button :tri_2, true %>
+    <%= f.label :tri_2, "No", :value => "false" %>
+    <%= f.radio_button :tri_2, false, :checked => true %>
+   </li>
+
+<p>3. Is there decreased movement from your baby?</p>
+   <li>
+   <%= f.label :tri_3, "Yes", :value => "true" %>
+   <%= f.radio_button :tri_3, true %>
+   <%= f.label :tri_3, "No", :value => "false" %>
+   <%= f.radio_button :tri_3, false, :checked => true %>
+  </li>

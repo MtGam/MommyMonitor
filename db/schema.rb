@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20160722151136) do
     t.boolean  "doc_admin"
     t.date     "dob"
     t.integer  "children"
-    t.boolean  "trimester"
+    t.integer  "trimester"
     t.string   "doc_qual"
     t.string   "regis_number"
     t.datetime "created_at",      null: false

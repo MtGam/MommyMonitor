@@ -1,7 +1,6 @@
 <h1>Mommy's Profile</h1>
 
-<h1><%= "Hello Mommy #{@user.first_name.titleize}!"%></h1>
-
+<h1><%= "How are you Mommy #{@user.first_name.titleize}?"%></h1>
 
 <h3>Your Info</h3>
 
@@ -11,3 +10,40 @@
 <p><%= "Email: #{@user.email}" %></p>
 <p><%= "Date of Birth: #{@user.dob}" %></p>
 <p><%= "Number of Children: #{@user.children}" %></p>
+
+<% @user.errors.full_messages.each do |message| %>
+<li><%= message %></li>
+<% end %>
+
+<p><strong>Edit your stage of pregnacy below for your specific set of questions:</strong></p>
+<%= form_for @user do |f| %>
+<div class="field">
+    <p><%= label_tag :stage_of_pregnancy %>:
+    <%=
+      f.select(:trimester,
+      options_for_select(
+      [['First Trimester', 1],
+       ['Second Trimester', 2],
+       ['Third Trimester', 3]]))
+    %>
+  </p>
+      <p>
+      <%= f.label :password %>
+      <%= f.password_field :password, placeholder: "Password" %>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, placeholder: "Password confirmation" %>
+      </p>
+    <p>
+    <%= f.submit 'Update' %>
+  </p>
+</div>
+
+<% end %>
+
+<% if current_user.trimester == 1 %>
+  <%= render 'tri_1_QA' %>
+<% elsif current_user.trimester == 2 %>
+  <%= render 'tri_2_QA' %>
+<% else %>
+  <%= render 'tri_3_QA' %>
+<% end %>

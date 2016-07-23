@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_path(@user.id), notice: "Sucessfully signed up!"
+      redirect_to session[:user_id], notice: "Sucessfully signed up!"
     else
       render :new, notice: "Please try again."
     end
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update(user_params)
-      redirect_to user_url, notice: "User was successfully updated."
+      redirect_to user_url(@user), notice: "User was successfully updated."
 
     else
       render :edit
@@ -46,6 +46,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone, :address, :dob, :children, :tri_1, :tri_2, :tri_3, :doc_qual, :regis_number)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone, :address, :dob, :children, :trimester, :tri_1, :tri_2, :tri_3, :doc_qual, :regis_number)
   end
 end
