@@ -33,9 +33,12 @@
 </div>
 
 <% end %>
+
 <% if current_user.trimester == 1 %>
 
+
   <h4>Trimester 1 Question Here</h4>
+
 
 <% elsif current_user.trimester == 2 %>
 
@@ -43,8 +46,9 @@
 
 <% else %>
 
-  <h4>Trimester 3 Question Here</h4>
+  <!-- <h4>Trimester 3 Question Here</h4> -->
 
 <% end %>
+
 
 <%= link_to "Edit", edit_user_path %>
