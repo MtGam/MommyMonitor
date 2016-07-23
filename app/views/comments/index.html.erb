@@ -1,26 +1,16 @@
 <h1>Comments#index</h1>
-<!-- <p>Find me in app/views/comments/index.html.erb</p> -->
 
 <%= form_for :response do |f| %>
 
 
-<!--
 <div class="field">
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name, placeholder: 'First Name' %>
-</div>
-<div class="field">
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name, placeholder: 'Last Name' %>
-</div> -->
 
-<div class="field">
   <p>
      <%= f.label :comment %>
   </p>
 
   <p>
-      <%= f.text_area :response, size: "50x10", placeholder: 'Start writting in this box!' %>
+      <%= f.text_area :response, size: "50x10", placeholder: 'Please start writting in this box!' %>
       <spellcheck="true">
   </p>
 
