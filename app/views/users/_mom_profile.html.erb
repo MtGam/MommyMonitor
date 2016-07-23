@@ -15,7 +15,8 @@
 <li><%= message %></li>
 <% end %>
 
-<p><strong>Edit your stage of pregnacy below for your specific set of questions:</strong></p>
+<p><strong>Edit your stage of pregnancy below for your specific set of questions:</strong></p>
+
 <%= form_for @user do |f| %>
 <div class="field">
     <p><%= label_tag :stage_of_pregnancy %>:
@@ -39,11 +40,16 @@
 </div>
 
 <% end %>
-
 <% if current_user.trimester == 1 %>
-  <%= render 'tri_1_QA' %>
+<%=  render 'tri_1_QA'%>
+
 <% elsif current_user.trimester == 2 %>
   <%= render 'tri_2_QA' %>
+
 <% else %>
-  <%= render 'tri_3_QA' %>
+
+<%=  render 'tri_3_QA'%>
+
 <% end %>
+
+<!-- <#%= link_to "Edit", edit_user_path %> -->

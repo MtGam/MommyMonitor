@@ -3,7 +3,9 @@
 <%= form_for @user do |f| %>
 
 <p>1. Are you having any cramps or pain?</p>
+
   <ul>
+    <name="trimester1"/>
     <%= f.label :tri_1, "Yes", :value => "true" %>
     <%= f.radio_button :tri_1, true %>
     <%= f.label :tri_1, "No", :value => "false" %>
@@ -11,7 +13,9 @@
   </ul>
 
 <p>2. Do you feel feverish with a very high body temperature?</p>
-   <ul>
+
+  <ul>
+    <name="trimester1" />
     <%= f.label :tri_2, "Yes", :value => "true" %>
     <%= f.radio_button :tri_2, true %>
     <%= f.label :tri_2, "No", :value => "false" %>
@@ -19,7 +23,9 @@
   </ul>
 
 <p>3. Are you having excessive nausea and vomitting?</p>
-   <ul>
+
+  <ul>
+  <name="trimester1" />
    <%= f.label :tri_3, "Yes", :value => "true" %>
    <%= f.radio_button :tri_3, true %>
    <%= f.label :tri_3, "No", :value => "false" %>
