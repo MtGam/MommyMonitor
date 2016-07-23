@@ -9,9 +9,12 @@
 <p><%= "Email: #{@user.email}" %></p>
 <p><%= "Date of Birth: #{@user.dob}" %></p>
 <p><%= "Number of Children: #{@user.children}" %></p>
+
 <% @user.errors.full_messages.each do |message| %>
 <li><%= message %></li>
 <% end %>
+
+<p><strong>Edit your stage of pregnancy below for your specific set of questions:</strong></p>
 <%= form_for @user do |f| %>
 <div class="field">
     <p><%= label_tag :stage_of_pregnancy %>:
@@ -26,6 +29,8 @@
       <p>
       <%= f.label :password %>
       <%= f.password_field :password, placeholder: "Password" %>
+      <%= f.label :password_confirmation %>
+     <%= f.password_field :password_confirmation, placeholder: "Password confirmation" %>
       </p>
     <p>
     <%= f.submit 'Update' %>
@@ -39,12 +44,15 @@
 
   <h4>Trimester 1 Question Here</h4>
 
+<%=  render 'tri_1_QA'%>
+
+
 
 <% elsif current_user.trimester == 2 %>
-
-  <h4>Trimester 2 Question Here</h4>
+<%=  render 'tri_2_QA'%>
 
 <% else %>
+
 
   <!-- <h4>Trimester 3 Question Here</h4> -->
 
@@ -52,3 +60,9 @@
 
 
 <%= link_to "Edit", edit_user_path %>
+
+<%=  render 'tri_3_QA'%>
+
+<% end %>
+
+<!-- <#%= link_to "Edit", edit_user_path %> -->
