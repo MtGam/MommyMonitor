@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update(user_params)
-      redirect_to user_url, notice: "User was successfully updated."
+      redirect_to user_url(@user), notice: "User was successfully updated."
 
     else
       render :edit

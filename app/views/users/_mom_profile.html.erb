@@ -9,8 +9,30 @@
 <p><%= "Email: #{@user.email}" %></p>
 <p><%= "Date of Birth: #{@user.dob}" %></p>
 <p><%= "Number of Children: #{@user.children}" %></p>
-<p><%= @user.trimester %></p>
+<% @user.errors.full_messages.each do |message| %>
+<li><%= message %></li>
+<% end %>
+<%= form_for @user do |f| %>
+<div class="field">
+    <p><%= label_tag :stage_of_pregnancy %>:
+    <%=
+      f.select(:trimester,
+      options_for_select(
+      [['First Trimester', 1],
+       ['Second Trimester', 2],
+       ['Third Trimester', 3]]))
+    %>
+  </p>
+      <p>
+      <%= f.label :password %>
+      <%= f.password_field :password, placeholder: "Password" %>
+      </p>
+    <p>
+    <%= f.submit 'Update' %>
+  </p>
+</div>
 
+<% end %>
 <% if current_user.trimester == 1 %>
 
   <h4>Trimester 1 Question Here</h4>
@@ -24,3 +46,5 @@
   <h4>Trimester 3 Question Here</h4>
 
 <% end %>
+
+<%= link_to "Edit", edit_user_path %>
