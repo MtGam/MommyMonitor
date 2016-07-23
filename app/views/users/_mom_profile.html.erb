@@ -40,23 +40,12 @@
 <% end %>
 
 <% if current_user.trimester == 1 %>
-
-
-
 <%=  render 'tri_1_QA'%>
-
-
 
 <% elsif current_user.trimester == 2 %>
 <%=  render 'tri_2_QA'%>
 
 <% else %>
-
-
+<%=  render 'tri_3_QA'%>
 
 <% end %>
-
-
-<%= link_to "Edit", edit_user_path %>
-
-<%=  render 'tri_3_QA'%>
