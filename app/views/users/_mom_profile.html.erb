@@ -1,8 +1,6 @@
-<h1>Mommy's Profile</h1>
-
 <h1><%= "How are you Mommy #{@user.first_name.titleize}?"%></h1>
 
-<h3>Your Info</h3>
+<h3>Your Information:</h3>
 
 <p><%= "Name: #{@user.first_name.titleize} #{@user.last_name.titleize}" %></p>
 <p><%= "Phone Number: #{@user.phone}" %></p>
@@ -14,7 +12,7 @@
 <% @user.errors.full_messages.each do |message| %>
 <li><%= message %></li>
 <% end %>
-
+<br/>
 <p><strong>Edit your stage of pregnancy below for your specific set of questions:</strong></p>
 
 <%= form_for @user do |f| %>
