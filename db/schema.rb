@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20160722151136) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.integer  "phone"
+    t.string  "phone"
     t.string   "address"
     t.string   "password_digest"
     t.boolean  "doc_admin"
