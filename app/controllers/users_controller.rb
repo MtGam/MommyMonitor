@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   # before_action :set_user, only: [:show, :edit, :update, :destroy]
   # skip_before_action :authorize, only: [:new, :create, :index]
 
-
   def index
     @users = User.all
   end
@@ -35,17 +34,63 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    if @user.update(user_params)
-      redirect_to user_url(@user), notice: "User was successfully updated."
+    # For docutor
+    if @user.regis_number.length > 0
+      redirect_to user_url(@user), notice: "Doctor comment sent."
+      return
+    end
 
+    # Saving reply comments.
+    if params[:comment] != nil && params[:comment]['comment'] != nil && params[:comment]['comment'].length > 0 && params[:comment]['trimester_id'] != nil
+      @comment = Comment.new(id: nil, mother_id: params[:id], commenter_id: params[:id],
+        comment: params[:comment]['comment'], trimester_id: params[:comment]['trimester_id'], doctor_id: nil)
+      @comment.save
+      redirect_to user_url(@user),
+      notice: "Your comment sent."
+      return
+    end
+
+    # Check if fields are not empty when mother is answering trimester questions.
+    if params[:user] != nil && params[:user]['trimester'] == nil
+      if (@user.trimester == 1 && (params[:user]['tri_1_1'] == nil ||
+            params[:user]['tri_1_2'] == nil || params[:user]['tri_1_3'] == nil)) ||
+            (@user.trimester == 2 && (params[:user]['tri_2_1'] == nil ||
+            params[:user]['tri_2_2'] == nil || params[:user]['tri_2_3'] == nil)) ||
+            (@user.trimester == 3 && (params[:user]['tri_3_1'] == nil ||
+            params[:user]['tri_3_2'] == nil || params[:user]['tri_3_3'] == nil))
+          redirect_to user_url(@user), notice: "Error: Please answer all questions."
+          return
+      end
+    end
+
+    if params[:user] != nil && params[:user]['trimester'] != nil && @user.update(user_params)
+      redirect_to user_url(@user),
+      notice: "Your trimester stage has been updated."
+      return
+    elsif params[:user] != nil &&
+        (params[:user]['tri_1_1'] != nil || params[:user]['tri_2_1'] != nil || params[:user]['tri_3_1'] != nil) &&
+        @user.update(user_params)
+        if params[:user]['comment'].length > 0 && params[:user]['trimester_id'] != nil
+          @comment = Comment.new(id: nil, mother_id: params[:id], commenter_id: params[:id],
+            comment: params[:user]['comment'], trimester_id: params[:user]['trimester_id'], doctor_id: nil)
+          @comment.save
+        end
+      redirect_to user_url(@user),
+      notice: "Your answers successfully logged."
+      return
     else
-      render :edit
+      redirect_to user_url(@user),
+      notice: "Error updating."
+      return
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone, :address, :dob, :children, :trimester, :tri_1, :tri_2, :tri_3, :doc_qual, :regis_number)
+    params.require(:user).permit(:first_name, :last_name, :email, :password,
+    :password_confirmation, :phone, :address, :dob, :children, :trimester,
+    :tri_1_1, :tri_1_2, :tri_1_3, :tri_2_1, :tri_2_2, :tri_2_3,
+    :tri_3_1, :tri_3_2, :tri_3_3, :doc_qual, :regis_number)
   end
 end

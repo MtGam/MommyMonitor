@@ -13,9 +13,11 @@
 ActiveRecord::Schema.define(version: 20160722151136) do
 
   create_table "comments", force: :cascade do |t|
-    t.text     "response"
-    t.integer  "author_id"
     t.integer  "mother_id"
+    t.integer  "doctor_id"
+    t.integer  "commenter_id"
+    t.integer  "trimester_id"
+    t.text     "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,9 +37,16 @@ ActiveRecord::Schema.define(version: 20160722151136) do
     t.string   "regis_number"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.boolean  "tri_1"
-    t.boolean  "tri_2"
-    t.boolean  "tri_3"
+    t.string  "tri_1_1"
+    t.string  "tri_1_2"
+    t.string  "tri_1_3"
+    t.string  "tri_2_1"
+    t.string  "tri_2_2"
+    t.string  "tri_2_3"
+    t.string  "tri_3_1"
+    t.string  "tri_3_2"
+    t.string  "tri_3_3"
+
   end
 
 end
