@@ -1,6 +1,7 @@
-<h1><%= "How are you Mommy #{@user.first_name.titleize}?"%></h1>
+<h1>Mommy's Profile</h1>
 
-<h3>Your Information:</h3>
+<h1><%= "Hello Mommy #{@user.first_name.titleize}!"%></h1>
+<h3>Your Info</h3>
 
 <p><%= "Name: #{@user.first_name.titleize} #{@user.last_name.titleize}" %></p>
 <p><%= "Phone Number: #{@user.phone}" %></p>
@@ -12,38 +13,35 @@
 <% @user.errors.full_messages.each do |message| %>
 <li><%= message %></li>
 <% end %>
-<br/>
-<p><strong>Edit your stage of pregnancy below for your specific set of questions:</strong></p>
 
+<p><strong>Edit your stage of pregnancy below for your specific set of questions:</strong></p>
 <%= form_for @user do |f| %>
 <div class="field">
-    <p><%= label_tag :stage_of_pregnancy %>:
-    <%=
-      f.select(:trimester,
-      options_for_select(
-      [['First Trimester', 1],
-       ['Second Trimester', 2],
-       ['Third Trimester', 3]]))
-    %>
-  </p>
-      <p>
-      <%= f.label :password %>
-      <%= f.password_field :password, placeholder: "Password" %>
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, placeholder: "Password confirmation" %>
-      </p>
-    <p>
-    <%= f.submit 'Update' %>
-  </p>
+   <p><%= label_tag :stage_of_pregnancy %>:
+   <%=
+     f.select(:trimester,
+     options_for_select(
+     [['First Trimester', 1],
+      ['Second Trimester', 2],
+      ['Third Trimester', 3]],
+      selected: current_user.trimester))
+   %>
+   <%= f.submit 'Update' %>
+ </p>
 </div>
 
+<% end %>
+
+
+<% if notice != nil %>
+<p style="color: blue; font-weight: bold;"><%= notice %></p>
 <% end %>
 
 <% if current_user.trimester == 1 %>
 <%=  render 'tri_1_QA'%>
 
 <% elsif current_user.trimester == 2 %>
-  <%= render 'tri_2_QA' %>
+<%=  render 'tri_2_QA'%>
 
 <% else %>
 <%=  render 'tri_3_QA'%>

@@ -3,13 +3,36 @@
 <h1><%="Hello #{@user.first_name.titleize}!"%></h1>
 
 <h3>Your Info</h3>
-<p><%= "Name: #{user.first_name.titleize} #{user.last_name.titleize}" %></p>
+<p><%= "Name: #{@user.first_name.titleize} #{@user.last_name.titleize}" %></p>
 <p><%= "Address: #{@user.address}" %></p>
 <p><%= "Phone Number: #{@user.phone}" %></p>
 <p><%= "Qualifications: #{@user.doc_qual}" %></p>
-<p><%= "Registration Number: #{user.regis_number}" %></p>
+<p><%= "Registration Number: #{@user.regis_number}" %></p>
 <p><%= "Email: #{@user.email}" %></p>
 
+<%
+@my_comments = Comment.all.order("created_at ASC")
+@my_comments.each do |comment|
+  if comment.doctor_id == current_user.id || comment.doctor_id == nil
+%>
+<p style="color: green; font-weight: bold;">
+  <% commenter_name = User.find(comment.commenter_id).first_name %>
+  [<%= commenter_name %>][Stage <%= comment.trimester_id %>] <%= comment.comment %>
+</p>
+<%
+  end
+end
+%>
 
-<!--> if user filled the trimester field when sign up => mommy <-->
-<!--> if user filled the doc_qual field when sign up => doc <-->
+<%= form_for @user do |f|%>
+
+<p>Comment:
+<input type="text" size="100" name="comment[comment]" id="comment">
+<input type="hidden" name="comment[trimester_id]" value="<%= current_user.trimester %>">
+ </p>
+   <p><%= f.submit 'Reply' %></p>
+<% end %>
+
+<% if notice != nil %>
+<p style="color: blue; font-weight: bold;"><%= notice %></p>
+<% end %>
