@@ -10,43 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722151136) do
+ActiveRecord::Schema.define(version: 20160725213757) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "mother_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "doctor_id"
     t.integer  "commenter_id"
     t.integer  "trimester_id"
     t.text     "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.string  "phone"
+    t.string   "phone"
     t.string   "address"
     t.string   "password_digest"
     t.boolean  "doc_admin"
     t.date     "dob"
     t.integer  "children"
-    t.integer  "trimester"
+    t.boolean  "trimester"
     t.string   "doc_qual"
     t.string   "regis_number"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string  "tri_1_1"
-    t.string  "tri_1_2"
-    t.string  "tri_1_3"
-    t.string  "tri_2_1"
-    t.string  "tri_2_2"
-    t.string  "tri_2_3"
-    t.string  "tri_3_1"
-    t.string  "tri_3_2"
-    t.string  "tri_3_3"
-
+    t.string   "tri_1_1"
+    t.string   "tri_1_2"
+    t.string   "tri_1_3"
+    t.string   "tri_2_1"
+    t.string   "tri_2_2"
+    t.string   "tri_2_3"
+    t.string   "tri_3_1"
+    t.string   "tri_3_2"
+    t.string   "tri_3_3"
   end
 
 end
