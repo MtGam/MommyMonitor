@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725213757) do
+ActiveRecord::Schema.define(version: 20160726150053) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "mother_id"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20160725213757) do
     t.boolean  "doc_admin"
     t.date     "dob"
     t.integer  "children"
-    t.boolean  "trimester"
+    t.integer  "trimester"
     t.string   "doc_qual"
     t.string   "regis_number"
     t.datetime "created_at",      null: false
