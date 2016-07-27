@@ -5,9 +5,9 @@ $(document).on('ready page:load', function(){
 
 $(document).ready(function(){
   $('#r1').hover(function(){
-    $(this).css('background-color', '#cc9966');  //#e6e6ff
+    $(this).css('background-color', '#cc9966');  //#e6e6ff //cc9966
   }, function () {
-    $(this).css('background-color', '#e6ffe6');
+    $(this).css('background-color', '#fff');
   });
 });
 
@@ -15,7 +15,7 @@ $(document).ready(function(){
   $('#r2').hover(function(){
     $(this).css('background-color', '#cc9966');
   }, function () {
-    $(this).css('background-color', '#ffffe6');
+    $(this).css('background-color', '#fff');
   });
 });
 

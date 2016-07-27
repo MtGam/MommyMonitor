@@ -1,4 +1,5 @@
-<div class="container">
+
+  <div class="container">
   <% if flash[:alert] %>
   <p id ="notice"><%= flash[:alert] %> </p>
   <% end %>
@@ -6,15 +7,14 @@
   <%= form_tag '/sessions' do %>
   <fieldset>
     <legend><h2>Please Log In</h2></legend>
-      <div>
+      <div class="field">
       <strong><%= label_tag :email, 'Email' %></strong>
-        <%= text_field_tag :email%>
+        <p><%= text_field_tag :email %></p>
       </div>
 
-      <div>
-
+      <div class="field">
       <strong><%= label_tag :password, 'Password' %></strong>
-        <%= password_field_tag :password %>
+        <p><%= password_field_tag :password %></p>
       </div>
 
       <div>
