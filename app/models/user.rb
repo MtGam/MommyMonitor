@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :password, length: {minimum: 7, maximum: 120,
     too_short: "Password too short. Minimum 7 characters."}, on: :update, allow_blank: true
 
+  scope :mothers, -> { where(mother: true) }
   has_secure_password
 #  has_many :comments
 end

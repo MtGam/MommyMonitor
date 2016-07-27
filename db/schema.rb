@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726150053) do
+ActiveRecord::Schema.define(version: 20160726213829) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "mother_id"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160726150053) do
     t.string   "tri_3_1"
     t.string   "tri_3_2"
     t.string   "tri_3_3"
+    t.boolean  "mother"
   end
 
 end

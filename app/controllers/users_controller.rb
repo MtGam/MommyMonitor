@@ -14,6 +14,9 @@ class UsersController < ApplicationController
   def show
     current_user
     @user = User.find(params[:id])
+    @mothers = User.mothers
+    @my_comments = Comment.where(mother_id: @user.id)
+
   end
 
   def create
@@ -34,8 +37,11 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    # For docutor
-    if @user.regis_number.length > 0
+    # For doctor
+    if current_user.mother == false
+      @comment = Comment.new(doctor_id: params[:id], commenter_id: params[:id], mother_id: @user.id,
+        comment: params[:comment]['comment'])
+      @comment.save
       redirect_to user_url(@user), notice: "Doctor comment sent."
       return
     end

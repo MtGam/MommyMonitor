@@ -1,4 +1,4 @@
-<% if current_user.regis_number.length > 0 %>
+<% if current_user.mother == false %>
 <%= render 'doc_profile'%>
 <% else %>
 <%= render 'mom_profile'%>

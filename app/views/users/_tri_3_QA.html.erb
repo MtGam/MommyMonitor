@@ -68,22 +68,10 @@
  </ul>
  <% end %>
 
- <%
- @my_comments = Comment.all.order("created_at ASC")
- @my_comments.each do |comment|
-   if comment.mother_id == current_user.id && comment.trimester_id == current_user.trimester
- %>
- <p style="color: green; font-weight: bold;">
-   <% commenter_name = User.find(comment.commenter_id).first_name %>
-   [<%= commenter_name %>] <%= comment.comment %>
- </p>
- <%
-   end
- end
- %>
+ 
 
 
- <p>Comment:
+ <p>Please write your concerns/comments:
 <% if question_answered == true %>
 <input type="text" size="100" name="comment[comment]" id="comment">
 <input type="hidden" name="comment[trimester_id]" value="<%= current_user.trimester %>">
