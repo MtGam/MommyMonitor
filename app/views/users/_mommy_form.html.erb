@@ -14,14 +14,11 @@
 
   <div class="field">
     <p>
-      <p><strong><%= f.label :date_of_birth %>:</strong></p>
+      <strong><%= f.label :date_of_birth %>:</strong>
       <%= f.date_field :dob, :prompt => "Placeholder", placeholder: "Date of Birth" %>
     </p>
-  </div>
-
-  <div class="field">
     <p>
-      <p><strong><%= f.label :number_of_children %>:</strong></p>
+      <strong><%= f.label :number_of_children %>:</strong>
       <%= f.number_field :children, placeholder: "Number of Children" %>
     </p>
   </div>

@@ -1,8 +1,8 @@
 <div class="field">
   <p>
    <!-- <strong><%= f.label :qualifications %></strong> -->
-   <%= f.text_field :doc_qual, placeholder: "Qualifications" %>
-    <%= f.text_field :regis_number, placeholder: "Registration Number"%>
+   <%= f.text_field :doc_qual, placeholder: "Qualifications", :maxlength => 18 %>
+    <%= f.text_field :regis_number, placeholder: "Registration Number", :maxlength => 18 %>
   </p>
 </div>
 

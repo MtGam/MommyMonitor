@@ -4,24 +4,30 @@
   <p id ="notice"><%= flash[:alert] %> </p>
   <% end %>
 
-  <%= form_tag '/sessions' do %>
-  <fieldset>
-    <legend><h2>Please Log In</h2></legend>
+  <%= form_tag sessions_path do %>
+  <div class="toplogoprofile">
+    <%= image_tag "logo3.png", :width => "204", :height => "106"%>
+    <fieldset>
+      <legend><h2 class="sign-form">L O G - I N</h2></legend>
+  </div>
       <div class="field">
-      <strong><%= label_tag :email, 'Email' %></strong>
+        <h3 class="sign-form"><%= label_tag :email, 'Email' %></h3>
         <p><%= text_field_tag :email %></p>
       </div>
 
       <div class="field">
-      <strong><%= label_tag :password, 'Password' %></strong>
+      <h3 class="sign-form"><%= label_tag :password, 'Password' %></h3>
         <p><%= password_field_tag :password %></p>
       </div>
+
+    </br>
+    </br>
 
       <div>
         <%= submit_tag "Login", class: 'submit_button' %>
       </div>
 
-  </fieldset>
+  <!-- </fieldset> -->
 
   <% end %>
 </div>

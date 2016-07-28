@@ -85,10 +85,10 @@ end
 
 <p>Comment:
 <% if question_answered == true %>
-<input type="text" size="100" name="comment[comment]" id="comment">
+<input type="text" size="80" name="comment[comment]" id="comment">
 <input type="hidden" name="comment[trimester_id]" value="<%= current_user.trimester %>">
 <% else %>
-<input type="text" size="100" name="user[comment]" id="comment">
+<input type="text" size="80" name="user[comment]" id="comment">
 <input type="hidden" name="user[trimester_id]" value="<%= current_user.trimester %>">
 <% end %>
 </p>

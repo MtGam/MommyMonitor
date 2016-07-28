@@ -1,41 +1,50 @@
-<h1>Mommy's Profile</h1>
+<div class="container">
+  <div class="toplogoprofile">
+    <%= image_tag "logo3.png", :width => "204", :height => "106"%>
+    <h3>MOMMY'S PROFILE</h3>
 
-<h1><%= "Hello Mommy #{@user.first_name.titleize}!"%></h1>
-<h3>Your Info</h3>
+    <p><h1><%= "Hello Mommy #{@user.first_name.titleize}!"%></h1></p>
+  </div>
 
-<p><%= "Name: #{@user.first_name.titleize} #{@user.last_name.titleize}" %></p>
-<p><%= "Phone Number: #{@user.phone}" %></p>
-<p><%= "Address: #{@user.address}" %></p>
-<p><%= "Email: #{@user.email}" %></p>
-<p><%= "Date of Birth: #{@user.dob}" %></p>
-<p><%= "Number of Children: #{@user.children}" %></p>
+    <div class="profile">
+      <h3>Your Info</h3>
 
-<% @user.errors.full_messages.each do |message| %>
-<li><%= message %></li>
-<% end %>
-
-<p><strong>Edit your stage of pregnancy below for your specific set of questions:</strong></p>
-<%= form_for @user do |f| %>
-<div class="field">
-   <p><%= label_tag :stage_of_pregnancy %>:
-   <%=
-     f.select(:trimester,
-     options_for_select(
-     [['First Trimester', 1],
-      ['Second Trimester', 2],
-      ['Third Trimester', 3]],
-      selected: current_user.trimester))
-   %>
-   <%= f.submit 'Update' %>
- </p>
-</div>
-
-<% end %>
+      <p><%= "Name: #{@user.first_name.titleize} #{@user.last_name.titleize}" %></p>
+      <p><%= "Phone Number: #{@user.phone}" %></p>
+      <p><%= "Address: #{@user.address}" %></p>
+      <p><%= "Email: #{@user.email}" %></p>
+      <p><%= "Date of Birth: #{@user.dob}" %></p>
+      <p><%= "Number of Children: #{@user.children}" %></p>
 
 
-<% if notice != nil %>
-<p style="color: blue; font-weight: bold;"><%= notice %></p>
-<% end %>
+    <p><strong>__________</strong></p>
+
+
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+
+    <p><strong>Edit your stage of pregnancy below for your specific set of questions:</strong></p>
+    <%= form_for @user do |f| %>
+
+     <p><%= label_tag :stage_of_pregnancy %>:
+     <%=
+       f.select(:trimester,
+       options_for_select(
+       [['First Trimester', 1],
+        ['Second Trimester', 2],
+        ['Third Trimester', 3]],
+        selected: current_user.trimester))
+     %><%= f.submit 'Update' %>
+     </p>
+    <% end %>
+
+  <% if notice != nil %>
+    <p style="color: blue; font-weight: bold;"><%= notice %></p>
+  <% end %>
+  </div>
+
+<div class="profile">
 
 <% if current_user.trimester == 1 %>
 <%=  render 'tri_1_QA'%>
@@ -47,3 +56,5 @@
 <%=  render 'tri_3_QA'%>
 
 <% end %>
+
+</div>

@@ -12,13 +12,13 @@
 
   </head>
 
-  <body>
+  <body class="<%= params['controller'] %>" data-spy="scroll" data-target=".navbar" data-offset="50">
 
     <%= render 'shared/navbar' %>
 
     <%= yield %>
 
-    
+
 
 
   </body>

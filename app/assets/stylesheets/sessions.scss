@@ -1,14 +1,43 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.users {
+  //  background: url('/assets/pregnant-bw.jpg') no-repeat fixed;
+  //  background-size: 100%;
+  //  -webkit-background-size: cover;
+  //  -moz-background-size: cover;
+  //  -o-background-size: cover;
+    background-color: #3a2613;
+    // margin: 0;
+    // padding: 0;
+    // height: 100%;
+    // width: 100%;
+ }
+
+ .sessions {
+   background-color: #3a2613;
+ }
+
 .container {
-    background-color: none;
-    color: #000;
-    opacity: 0.8;
-    width: 600px;
+    // background-color: none;
+    color: #ecd9c6;
+    // opacity: 0.8;
+    width: 900px;
     padding: 25px;
     margin: 0 auto;
-    text-align: center;
+    // text-align: center;
+}
+
+.toplogoprofile {
+  background-color: none;
+  text-align: center;
+}
+
+.field {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  color: #000;  //#ecd9c6
 }
 
 .field input {
@@ -17,4 +46,18 @@
     padding: 10px;
     border: 2px solid #000;
     border-radius:2px;
+}
+
+.profile {
+    background-color: #fff;
+    color: chocolate;
+    opacity: 0.7;
+    display: inline-block;
+    text-align: left;
+    font-size: 16px;
+    width: 400px;
+    height:700px;
+    margin: 10px;
+    border: 3px solid #000;
+    padding: 10px;
 }

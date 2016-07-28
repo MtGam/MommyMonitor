@@ -1,4 +1,42 @@
+.sign-form {
+  color: #fff;
+}
+
+.role1 {
+  background-color: #fff;
+  opacity: .9;
+  width: 509px;
+  margin: 10px auto 10px;
+  border: 2px solid black;
+  padding: 15px;
+}
+
+.role2 {
+  background-color: #fff;
+  opacity: .9;
+  width: 509px;
+  margin: 10px auto 10px;
+  border: 2px solid black;
+  padding: 15px;
+}
+
 .submit_button {
+  background-color: #604020;
+  color: #ffffff;
+  display: table;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  position: relative;
+  transition: all 0.2s linear;
+  border: 2px solid black;
+  width: 250px;
+  height: 50px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.login_button {
   background-color: #604020;
   color: #ffffff;
   display: table;
@@ -14,8 +52,10 @@
 }
 
 #r1 {
-  // background-color: #000;
-  color: #000;
+  background-color: #fff;
+  color: chocolate;
+  font-weight: bold;
+  font-size: 20px;
   text-align: center;
   position: inherit;;
   width: 509px;
@@ -26,8 +66,10 @@
 }
 
 #r2 {
-  // background-color: #fff;
-  // color: #000;
+  background-color: #fff;
+  color: chocolate;
+  font-weight: bold;
+  font-size: 20px;
   text-align: center;
   position: relative;
   width: 509px;

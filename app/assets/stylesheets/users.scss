@@ -1,3 +1,22 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.field2 {
+  text-align: left;
+}
+
+.submit2_button {
+  background-color: lightgrey;
+  border: 2px solid black;
+  color: #000;
+  display: table;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  position: relative;
+  transition: all 0.2s linear;
+  width: 200px;
+  height: 40px;
+  margin: 0 auto;
+  padding: 5px;
+}

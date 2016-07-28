@@ -76,20 +76,20 @@
 end
 %>
 
-<p>Comment:
+<p><h3>Comment:</h3>
 <% if question_answered == true %>
-<input type="text" size="100" name="comment[comment]" id="comment">
+<input type="text" size="70" name="comment[comment]" id="comment">
 <input type="hidden" name="comment[trimester_id]" value="<%= current_user.trimester %>">
 <% else %>
-<input type="text" size="100" name="user[comment]" id="comment">
+<input type="text" size="70" name="user[comment]" id="comment">
 <input type="hidden" name="user[trimester_id]" value="<%= current_user.trimester %>">
 <% end %>
 </p>
 
   <% if question_answered == false %>
-  <p><%= f.submit 'Update' %></p>
+  <p><%= f.submit 'Update', class: "submit2_button" %></p>
   <% else %>
-  <p><%= f.submit 'Reply' %></p>
+  <p><%= f.submit 'Reply', class: "submit2_button" %></p>
   <% end %>
 
 <% end %>

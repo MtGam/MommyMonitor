@@ -1,4 +1,4 @@
-<h1>Doctor's Profile</h1>
+<h3>DOCTOR'S PROFILE</h3>
 
 <h1><%="Hello #{@user.first_name.titleize}!"%></h1>
 
@@ -9,6 +9,8 @@
 <p><%= "Qualifications: #{@user.doc_qual}" %></p>
 <p><%= "Registration Number: #{@user.regis_number}" %></p>
 <p><%= "Email: #{@user.email}" %></p>
+
+<p><strong>__________</strong></p>
 
 <%
 @my_comments = Comment.all.order("created_at ASC")
@@ -27,7 +29,7 @@ end
 <%= form_for @user do |f|%>
 
 <p>Comment:
-<input type="text" size="100" name="comment[comment]" id="comment">
+<input type="text" size="70" name="comment[comment]" id="comment">
 <input type="hidden" name="comment[trimester_id]" value="<%= current_user.trimester %>">
  </p>
    <p><%= f.submit 'Reply' %></p>
