@@ -19,6 +19,7 @@ User.create({first_name: 'Chau',
              dob: '2000-01-01',
              mother: true})
 
+
 User.create({first_name: 'Smita',
             last_name: 'Ingleshwar',
             email: 'smita@yahoo.com',
@@ -41,3 +42,16 @@ User.create({first_name: 'Henry',
             doc_qual: 'qwer',
             regis_number: '9876',
             mother: false})
+
+Comment.create({comment: 'I need help!',
+               mother_id: 1,
+               commenter_id: 1,
+               trimester_id: 1})
+
+Comment.create({comment: 'this is Smita! I need help!',
+              mother_id: 2,
+              commenter_id: 2,
+              trimester_id: 1})
+
+
+Comment.create({comment: 'How can I help you ?', doctor_id: 3, commenter_id: 3, mother_id: 1})

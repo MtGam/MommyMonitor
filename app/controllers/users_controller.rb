@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @comment = Comment.new
   end
 
   def new
@@ -15,7 +16,10 @@ class UsersController < ApplicationController
     current_user
     @user = User.find(params[:id])
     @mothers = User.mothers
+    @comment = Comment.new
+
     @my_comments = Comment.where(mother_id: @user.id)
+    # @my_comments = []
 
   end
 

@@ -11,5 +11,6 @@ class User < ApplicationRecord
 
   scope :mothers, -> { where(mother: true) }
   has_secure_password
-#  has_many :comments
+  has_many :comments
+  # accepts_nested_attributes_for: :comment
 end

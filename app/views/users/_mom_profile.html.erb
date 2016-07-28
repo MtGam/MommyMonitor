@@ -34,38 +34,36 @@
 
 
 <% if notice != nil %>
-<p style="color: blue; font-weight: bold;"><%= notice %></p>
+  <p style="color: blue; font-weight: bold;"><%= notice %></p>
 <% end %>
 
 <% if current_user.trimester == 1 %>
-<%=  render 'tri_1_QA'%>
-
-<% elsif current_user.trimester == 2 %>
-<%=  render 'tri_2_QA'%>
-
-<% else %>
-<%=  render 'tri_3_QA'%>
-
+  <%=  render 'tri_1_QA'%>
+  <% elsif current_user.trimester == 2 %>
+  <%=  render 'tri_2_QA'%>
+  <% else %>
+  <%=  render 'tri_3_QA'%>
 <% end %>
 
-<% if current_user = @comment.commenter_id%>
+
+<%# if current_user = @comment.commenter_id%>
 <% @my_comments.each do |comment| %>
   <% if comment.doctor_id == current_user.id || comment.doctor_id == nil %>
 
-<p style="color: green; font-weight: bold;">
-  <% commenter_name = User.find(comment.commenter_id).first_name.capitalize %>
-  [<%= commenter_name %>][Trimester <%= comment.trimester_id %>] <%= comment.comment %>
-</p>
-<% end %>
+    <p style="color: green; font-weight: bold;">
+      <% commenter_name = User.find(comment.commenter_id).first_name.capitalize %>
+      [ <%= commenter_name %>][Trimester <%= comment.trimester_id %>] <%= comment.comment %>
+    </p>
+ <% end %>
 <% end %>
 
 
-<!-- <% @my_comments.each do |comment| %>
-<% if comment.mother_id == @user.id %> --><!-- this is for checking the comment has mother_id-->
-<!-- <p style="color: green; font-weight: bold;" data-mother-id="<%= comment.mother_id %>">
-  <span>Test</span>
-  <% commenter_name = User.find(comment.commenter_id).first_name %>
-  [<%= commenter_name %>] <%= comment.comment %>
-</p>
-<% end %>
-<% end %>  -->
+<%# @my_comments.each do |comment| %>
+<%# if comment.mother_id == @user.id %><!-- this is for checking the comment has mother_id-->
+<!-- <p style="color: green; font-weight: bold;" data-mother-id="<%#= comment.mother_id %>"> -->
+  <!-- <span>Test</span> -->
+  <%# commenter_name = User.find(comment.commenter_id).first_name %>
+  <!-- [<%#= commenter_name %>] <%#= comment.comment %> -->
+<!-- </p> -->
+<%#end %>
+<%# end %>

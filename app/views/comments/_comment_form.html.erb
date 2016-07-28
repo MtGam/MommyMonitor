@@ -1,0 +1,31 @@
+<%= form_for :comment do |f| %>
+
+
+<% @comments.each do |comment| %>
+    <div class="message">
+      <p class="content"><%= comment.comment %></p>
+      <p class="time"><%= comment.created_at %></p>
+    </div>
+  <% end %>
+
+<div class="field">
+
+  <p>
+     <%= f.label :comment %>
+  </p>
+
+  <p>
+      <%= f.text_area :comment, size: "50x10", placeholder: 'Please start writting in this box!' %>
+      <spellcheck="true">
+  </p>
+
+</div>
+
+<%= f.hidden_field :mother_id, :value => @mother_id %>
+
+
+<p>
+  <%= f.submit %>
+</p>
+
+<% end %>

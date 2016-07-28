@@ -19,12 +19,15 @@
 <%@my_comments.each do |comment|%>
   <% if comment.doctor_id == current_user.id || comment.doctor_id == nil %>
 
-<p style="color: green; font-weight: bold;">
+ <p style="color: green; font-weight: bold;">
   <% commenter_name = User.find(comment.commenter_id).first_name.capitalize %>
   [<%= commenter_name %>][Stage <%= comment.trimester_id %>] <%= comment.comment %>
-</p>
+ </p>
   <% end %>
 <% end %>
+
+<%= render 'comments/comment_form'%>
+
 
 <%= form_for @user do |f|%>
 <p>Comment:

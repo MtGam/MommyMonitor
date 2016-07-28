@@ -15,10 +15,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.commenter_id = current_user
 
-
-
-     if @comment.save
-       redirect_to user_comments_path(@user), :flash => { :success => "Message" }
+    if @comment.save
+       redirect_to user_path(@user), :flash => { :success => "Message" }
      else
        render :index, :flash => { :fail => "failed!" }
      end
