@@ -3,18 +3,24 @@ class UsersController < ApplicationController
  # before_action :set_user, only: [:show, :edit, :update, :destroy]
  # skip_before_action :authorize, only: [:new, :create, :index]
 
- def index
-   @users = User.all
- end
+  def index
+    @users = User.all
+    @comment = Comment.new
+  end
 
- def new
-   @user = User.new
- end
+  def new
+    @user = User.new
+  end
 
- def show
-   current_user
-   @user = User.find(params[:id])
- end
+  def show
+    current_user
+    @user = User.find(params[:id])
+    @mothers = User.mothers
+    @comment = Comment.new
+
+    @my_comments = Comment.where(mother_id: @user.id)
+    # @my_comments = []
+  end
 
  def create
    @user = User.new(user_params)
@@ -34,11 +40,14 @@ class UsersController < ApplicationController
  def update
    @user = User.find(params[:id])
 
-   # For docutor
-   if @user.regis_number.length > 0
-     redirect_to user_url(@user), notice: "Doctor comment sent."
-     return
-   end
+    # For doctor
+    if current_user.mother == false
+      @comment = Comment.new(doctor_id: params[:id], commenter_id: params[:id], mother_id: @user.id,
+        comment: params[:comment]['comment'])
+      @comment.save
+      redirect_to user_url(@user), notice: "Doctor comment sent."
+      return
+    end
 
    # Saving reply comments.
    if params[:comment] != nil && params[:comment]['comment'] != nil && params[:comment]['comment'].length > 0 && params[:comment]['trimester_id'] != nil

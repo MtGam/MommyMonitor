@@ -8,21 +8,19 @@
 
     <div class="profile">
       <h3>Your Info</h3>
+        <p><%= "Name: #{@user.first_name.titleize} #{@user.last_name.titleize}" %></p>
+        <p><%= "Phone Number: #{@user.phone}" %></p>
+        <p><%= "Address: #{@user.address}" %></p>
+        <p><%= "Email: #{@user.email}" %></p>
+        <p><%= "Date of Birth: #{@user.dob}" %></p>
+        <p><%= "Number of Children: #{@user.children}" %></p>
 
-      <p><%= "Name: #{@user.first_name.titleize} #{@user.last_name.titleize}" %></p>
-      <p><%= "Phone Number: #{@user.phone}" %></p>
-      <p><%= "Address: #{@user.address}" %></p>
-      <p><%= "Email: #{@user.email}" %></p>
-      <p><%= "Date of Birth: #{@user.dob}" %></p>
-      <p><%= "Number of Children: #{@user.children}" %></p>
-
-
-    <p><strong>__________</strong></p>
+        <p><strong>__________</strong></p>
 
 
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-    <% end %>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
 
     <p><strong>Edit your stage of pregnancy below for your specific set of questions:</strong></p>
     <%= form_for @user do |f| %>
@@ -39,22 +37,44 @@
      </p>
     <% end %>
 
+
   <% if notice != nil %>
     <p style="color: blue; font-weight: bold;"><%= notice %></p>
   <% end %>
-  </div>
-
-<div class="profile">
-
-<% if current_user.trimester == 1 %>
-<%=  render 'tri_1_QA'%>
-
-<% elsif current_user.trimester == 2 %>
-<%=  render 'tri_2_QA'%>
-
-<% else %>
-<%=  render 'tri_3_QA'%>
-
-<% end %>
 
 </div>
+
+
+<div class="profile">
+  <% if current_user.trimester == 1 %>
+    <%=  render 'tri_1_QA'%>
+    <% elsif current_user.trimester == 2 %>
+    <%=  render 'tri_2_QA'%>
+    <% else %>
+    <%=  render 'tri_3_QA'%>
+  <% end %>
+
+  <%# if current_user = @comment.commenter_id%>
+  <% @my_comments.each do |comment| %>
+    <% if comment.doctor_id == current_user.id || comment.doctor_id == nil %>
+
+      <p style="color: green; font-weight: bold;">
+        <% commenter_name = User.find(comment.commenter_id).first_name.capitalize %>
+        [ <%= commenter_name %>][Trimester <%= comment.trimester_id %>] <%= comment.comment %>
+      </p>
+   <% end %>
+  <% end %>
+
+</div>
+</div>
+
+
+<%# @my_comments.each do |comment| %>
+<%# if comment.mother_id == @user.id %><!-- this is for checking the comment has mother_id-->
+<!-- <p style="color: green; font-weight: bold;" data-mother-id="<%#= comment.mother_id %>"> -->
+  <!-- <span>Test</span> -->
+  <%# commenter_name = User.find(comment.commenter_id).first_name %>
+  <!-- [<%#= commenter_name %>] <%#= comment.comment %> -->
+<!-- </p> -->
+<%#end %>
+<%# end %>

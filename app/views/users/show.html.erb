@@ -1,9 +1,10 @@
+
 <div class="container">
 
-<% if current_user.regis_number.length > 0 %>
-<%= render 'doc_profile'%>
-<% else %>
-<%= render 'mom_profile'%>
-<% end %>
+  <% if current_user.mother == false %>
+    <%= render 'doc_profile'%>
+    <% else %>
+    <%= render 'mom_profile'%>
+  <% end %>
 
 </div>

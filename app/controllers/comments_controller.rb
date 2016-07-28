@@ -13,10 +13,10 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.author = current_user
+    @comment.commenter_id = current_user
 
-     if @comment.save
-       redirect_to user_comments_path(@user), :flash => { :success => "Message" }
+    if @comment.save
+       redirect_to user_path(@user), :flash => { :success => "Message" }
      else
        render :index, :flash => { :fail => "failed!" }
      end
@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:response, :mother_id)
+    params.require(:comment).permit(:mother_id, :doctor_id, :commenter_id)
   end
 
 end

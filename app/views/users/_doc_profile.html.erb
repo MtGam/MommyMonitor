@@ -10,24 +10,31 @@
 <p><%= "Registration Number: #{@user.regis_number}" %></p>
 <p><%= "Email: #{@user.email}" %></p>
 
+
 <p><strong>__________</strong></p>
 
-<%
-@my_comments = Comment.all.order("created_at ASC")
-@my_comments.each do |comment|
-  if comment.doctor_id == current_user.id || comment.doctor_id == nil
-%>
-<p style="color: green; font-weight: bold;">
-  <% commenter_name = User.find(comment.commenter_id).first_name %>
+
+<% if current_user == @user %>
+<% @mothers.each do |mother|%>
+  <!-- <%= link_to [mother.first_name, mother.last_name], mother %> -->
+  <%= link_to "#{mother.first_name} #{mother.last_name}", mother %>
+  <% end %>
+<%end%>
+
+<%@my_comments.each do |comment|%>
+  <% if comment.doctor_id == current_user.id || comment.doctor_id == nil %>
+
+ <p style="color: green; font-weight: bold;">
+  <% commenter_name = User.find(comment.commenter_id).first_name.capitalize %>
   [<%= commenter_name %>][Stage <%= comment.trimester_id %>] <%= comment.comment %>
-</p>
-<%
-  end
-end
-%>
+ </p>
+  <% end %>
+<% end %>
+
+<%= render 'comments/comment_form'%>
+
 
 <%= form_for @user do |f|%>
-
 <p>Comment:
 <input type="text" size="70" name="comment[comment]" id="comment">
 <input type="hidden" name="comment[trimester_id]" value="<%= current_user.trimester %>">
