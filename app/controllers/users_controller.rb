@@ -17,6 +17,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @mothers = User.mothers
     @comment = Comment.new
+    @comment.commenter_id = current_user.id
+    @mother_id = @user.id
 
     @my_comments = Comment.where(mother_id: @user.id)
     # @my_comments = []
