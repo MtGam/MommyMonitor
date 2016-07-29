@@ -5,7 +5,7 @@ $(document).on('ready page:load', function(){
 
 $(document).ready(function(){
   $('#r1').hover(function(){
-    $(this).css('background-color', '#cc9966');  //#e6e6ff //cc9966
+    $(this).css('background-color', '#ffe6e6'); 
   }, function () {
     $(this).css('background-color', '#fff');
   });
@@ -13,7 +13,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
   $('#r2').hover(function(){
-    $(this).css('background-color', '#cc9966');
+    $(this).css('background-color', '#ffe6e6');
   }, function () {
     $(this).css('background-color', '#fff');
   });
