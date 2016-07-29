@@ -1,16 +1,9 @@
-<%= form_for [@user, @comment] do |f| %>
+<!-- <%#= form_for [@user, @comment] do |f| %> -->
 
- <!-- <%# @comments.each do |comment| %>
-    <div class="message">
-      <p class="content"><%#= comment.comment %></p>
-      <p class="time"><%#= comment.created_at %></p>
-    </div>
-  <%#end %> -->
 
-    <%= form_for :comment do |f| %>
-    <%= f.text_area :comment, size: '25x10', placeholder: 'Please write your comments here!' %>
-      <spellcheck="true">
-      <%= f.hidden_field :mother_id, :value => @mother_id %>
-    <%= f.submit %>
-    <% end %>
-<%end%>
+<%= form_for :comment do |f| %>
+  <%= f.text_area :comment, size: '45x5', placeholder: 'Please write your comments here!' %>
+    <spellcheck="true">
+    <%= f.hidden_field :mother_id, :value => @mother_id %>
+  <%= f.submit %></p>
+<% end %>

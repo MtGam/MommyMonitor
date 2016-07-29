@@ -81,7 +81,7 @@ class UsersController < ApplicationController
    elsif params[:user] != nil &&
        (params[:user]['tri_1_1'] != nil || params[:user]['tri_2_1'] != nil || params[:user]['tri_3_1'] != nil) &&
        @user.update(user_params)
-       if params[:user]['comment'].length > 0 && params[:user]['trimester_id'] != nil
+       if params[:user]['trimester_id'] != nil
          @comment = Comment.new(id: nil, mother_id: params[:id], commenter_id: params[:id],
            comment: params[:user]['comment'], trimester_id: params[:user]['trimester_id'], doctor_id: nil)
          @comment.save
