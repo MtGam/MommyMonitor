@@ -64,10 +64,10 @@ class UsersController < ApplicationController
    # Check if fields are not empty when mother is answering trimester questions.
    if params[:user_id] != nil && params[:user_id]['trimester'] == nil
      if (@user.trimester == 1 && (params[:user_id]['tri_1_1'] == nil ||
-           params[:user_id]['tri_1_2'] == nil || params[:user_id]['tri_1_3'] == nil)) ||
-           (@user.trimester == 2 && (params[:user_id]['tri_2_1'] == nil ||
-           params[:user_id]['tri_2_2'] == nil || params[:user_id]['tri_2_3'] == nil)) ||
-           (@user.trimester == 3 && (params[:user_id]['tri_3_1'] == nil ||
+         params[:user_id]['tri_1_2'] == nil || params[:user_id]['tri_1_3'] == nil))
+        (@user.trimester == 2 && (params[:user_id]['tri_2_1'] == nil ||
+           params[:user_id]['tri_2_2'] == nil || params[:user_id]['tri_2_3'] == nil))
+        (@user.trimester == 3 && (params[:user_id]['tri_3_1'] == nil ||
            params[:user_id]['tri_3_2'] == nil || params[:user_id]['tri_3_3'] == nil))
          redirect_to user_url(@user), notice: "Error: Please answer all questions."
          return

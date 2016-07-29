@@ -61,7 +61,9 @@
       </ul>
     <% end %>
 
-    <% if question_answered == false %>
+
+
+    <% if question_answered == true %>
       <p><%= f.submit 'Update', class: "submit2_button" %></p>
         <% else %>
       <p><%= f.submit 'Reply', class: "submit2_button" %></p>
