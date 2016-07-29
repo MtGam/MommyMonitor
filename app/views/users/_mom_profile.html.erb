@@ -1,3 +1,4 @@
+
   <div class="toplogoprofile">
     <%= image_tag "logo3.png", :width => "204", :height => "106"%>
       <h3>MOMMY'S PROFILE</h3>
@@ -5,6 +6,7 @@
       <p><h1><%= "Hello Mommy #{@user.first_name.titleize}!"%></h1></p>
   </div>
 
+  <div class="profile-wrapper">
     <div class="profile">
       <h3>Your Info</h3>
         <p><%= "Name: #{@user.first_name.titleize} #{@user.last_name.titleize}" %></p>
@@ -39,7 +41,6 @@
       <% if notice != nil %>
         <p style="color: blue; font-weight: bold;"><%= notice %></p>
       <% end %>
-
     </div>
 
 
@@ -53,30 +54,10 @@
   <% end %>
 </div>
 
-  <%# if current_user = @comment.commenter_id%>
-  <% @my_comments.each do |comment| %>
-    <% if comment.doctor_id == current_user.id || comment.doctor_id == nil %>
+      <div class="comment-form">
+        <%= render 'comments/comment_form'%>
+      </div>
 
-      <p style="color: green; font-weight: bold;">
-        <% commenter_name = User.find(comment.commenter_id).first_name.capitalize %>
-        [ <%= commenter_name %>][Trimester <%= comment.trimester_id %>] <%= comment.comment %>
-      </p>
-   <% end %>
-  <% end %>
+    </div>
 
 </div>
-
-<div class="comment-form">
-  <%= render 'comments/comment_form'%>
-</div>
-
-
-<%# @my_comments.each do |comment| %>
-<%# if comment.mother_id == @user.id %><!-- this is for checking the comment has mother_id-->
-<!-- <p style="color: green; font-weight: bold;" data-mother-id="<%#= comment.mother_id %>"> -->
-  <!-- <span>Test</span> -->
-  <%# commenter_name = User.find(comment.commenter_id).first_name %>
-  <!-- [<%#= commenter_name %>] <%#= comment.comment %> -->
-<!-- </p> -->
-<%#end %>
-<%# end %>

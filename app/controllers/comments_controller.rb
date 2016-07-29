@@ -9,6 +9,8 @@ class CommentsController < ApplicationController
 
   def show
     @comment = Comment.find(params[:id])
+    @comment.commenter_id = current_user.id
+
   end
 
   def create
