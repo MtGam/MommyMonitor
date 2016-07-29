@@ -1,47 +1,47 @@
-<div class="toplogoprofile">
-  <%= image_tag "logo3.png", :width => "204", :height => "106"%>
-    <h3>DOCTOR'S PROFILE</h3>
 
-      <h1><%="Hello #{@user.first_name.titleize}!"%></h1>
-</div>
+  <div class="toplogoprofile">
+    <%= image_tag "logo3.png", :width => "204", :height => "106"%>
+      <h3>DOCTOR'S PROFILE</h3>
 
-<div class="profile-wrapper">
-
-  <div class="profile">
-    <h3>Your Info</h3>
-      <p><%= "Name: #{@user.first_name.titleize} #{@user.last_name.titleize}" %></p>
-      <p><%= "Address: #{@user.address}" %></p>
-      <p><%= "Phone Number: #{@user.phone}" %></p>
-      <p><%= "Qualifications: #{@user.doc_qual}" %></p>
-      <p><%= "Registration Number: #{@user.regis_number}" %></p>
-      <p><%= "Email: #{@user.email}" %></p>
-
-      <p><strong>__________</strong></p>
+        <!-- <h1><%#="Hello #{@user.first_name.titleize}!"%></h1> -->
   </div>
 
-  <div class="profile">
-    <h3>List of My Patients:</h3>
-    <% if current_user == @user %>
-      <% @mothers.each do |mother|%>
-      <!-- <%= link_to [mother.first_name, mother.last_name], mother %> -->
-      <li><%= link_to "#{mother.first_name} #{mother.last_name}", mother %></li>
-      <% end %>
-    <%end%>
+  <div class="profile-wrapper">
 
-    <%@my_comments.each do |comment|%>
-      <% if comment.doctor_id == current_user.id || comment.doctor_id == nil %>
+    <div class="profile">
+      <h3>Your Info</h3>
+        <p><%= "Name: #{@user.first_name.titleize} #{@user.last_name.titleize}" %></p>
+        <p><%= "Address: #{@user.address}" %></p>
+        <p><%= "Phone Number: #{@user.phone}" %></p>
+        <p><%= "Qualifications: #{@user.doc_qual}" %></p>
+        <p><%= "Registration Number: #{@user.regis_number}" %></p>
+        <p><%= "Email: #{@user.email}" %></p>
 
-        <p style="color: green; font-weight: bold;">
-        <% commenter_name = User.find(comment.commenter_id).first_name.capitalize %>
-        [<%= commenter_name %>][Stage <%= comment.trimester_id %>] <%= comment.comment %>
-        </p>
+        <p><strong>__________</strong></p>
+    </div>
+
+    <div class="profile">
+      <h3>List of My Patients:</h3>
+      <% if current_user == @user %>
+        <% @mothers.each do |mother|%>
+        <!-- <%= link_to [mother.first_name, mother.last_name], mother %> -->
+        <li><%= link_to "#{mother.first_name} #{mother.last_name}", mother %></li>
+        <% end %>
+      <%end%>
+
+      <%@my_comments.each do |comment|%>
+        <% if comment.doctor_id == current_user.id || comment.doctor_id == nil %>
+
+          <p style="color: green; font-weight: bold;">
+            <% commenter_name = User.find(comment.commenter_id).first_name.capitalize %>
+            <li>[<%= commenter_name %>][Stage <%= comment.trimester_id %>] <%= comment.comment %></li>
+          </p>
+        <% end %>
       <% end %>
-    <% end %>
+    </br>
+      <div class="comment-form">
+        <%= render 'comments/comment_form'%>
+      </div>
+    </div>
 
   </div>
-
-</div>
-
-<div class="comment-form">
-  <%= render 'comments/comment_form'%>
-</div>

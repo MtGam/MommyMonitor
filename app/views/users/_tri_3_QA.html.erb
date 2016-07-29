@@ -30,59 +30,48 @@
   <% end %>
 
 
-<p>2. Is there decreased movement from your baby?
- <% if question_answered == true %>
- <b><%= current_user.tri_3_2 %></b>
- <% end %>
-</p>
+  <p>2. Is there decreased movement from your baby?
+     <% if question_answered == true %>
+       <b><%= current_user.tri_3_2 %></b>
+     <% end %>
+  </p>
 
-<% if question_answered == false %>
-<ul>
- <%= f.label :tri_3_2, "Yes" %>
- <%= f.radio_button :tri_3_2, "Yes" %>
- <%= f.label :tri_3_2, "No" %>
- <%= f.radio_button :tri_3_2, "No" %>
- <%= f.label :tri_3_2, "N/A" %>
- <%= f.radio_button :tri_3_2, "N/A" %>
-</ul>
-<% end %>
-
-
-<p>3. Do any of these changes apply to you?  Vaginal discharge to a pink or
- reddish color, menstrual-like cramps, pressure in your pelvis or lower abdomen,
- and contractions that last for at least an hour that aren’t Braxton Hicks contractions.
- <% if question_answered == true %>
- <b><%= current_user.tri_3_3 %></b>
- <% end %>
-</p>
-
-<% if question_answered == false %>
-<ul>
- <%= f.label :tri_3_3, "Yes" %>
- <%= f.radio_button :tri_3_3, "Yes" %>
- <%= f.label :tri_3_3, "No" %>
- <%= f.radio_button :tri_3_3, "No" %>
- <%= f.label :tri_3_3, "N/A" %>
- <%= f.radio_button :tri_3_3, "N/A" %>
-</ul>
-<% end %>
+  <% if question_answered == false %>
+    <ul>
+       <%= f.label :tri_3_2, "Yes" %>
+       <%= f.radio_button :tri_3_2, "Yes" %>
+       <%= f.label :tri_3_2, "No" %>
+       <%= f.radio_button :tri_3_2, "No" %>
+       <%= f.label :tri_3_2, "N/A" %>
+       <%= f.radio_button :tri_3_2, "N/A" %>
+    </ul>
+  <% end %>
 
 
- <p>Please write your concerns/comments:
+  <p>3. Do any of these changes apply to you?  Vaginal discharge to a pink or
+   reddish color, menstrual-like cramps, pressure in your pelvis or lower abdomen,
+   and contractions that last for at least an hour that aren’t Braxton Hicks contractions.
+     <% if question_answered == true %>
+       <b><%= current_user.tri_3_3 %></b>
+     <% end %>
+  </p>
 
-<% if question_answered == true %>
-<input type="text" size="80" name="comment[comment]" id="comment">
-<input type="hidden" name="comment[trimester_id]" value="<%= current_user.trimester %>">
-<% else %>
-<input type="text" size="80" name="user[comment]" id="comment">
-<input type="hidden" name="user[trimester_id]" value="<%= current_user.trimester %>">
-<% end %>
-</p>
+  <% if question_answered == false %>
+    <ul>
+       <%= f.label :tri_3_3, "Yes" %>
+       <%= f.radio_button :tri_3_3, "Yes" %>
+       <%= f.label :tri_3_3, "No" %>
+       <%= f.radio_button :tri_3_3, "No" %>
+       <%= f.label :tri_3_3, "N/A" %>
+       <%= f.radio_button :tri_3_3, "N/A" %>
+    </ul>
+  <% end %>
 
- <% if question_answered == false %>
- <p><%= f.submit 'Update' %></p>
- <% else %>
- <p><%= f.submit 'Reply' %></p>
- <% end %>
+
+   <% if question_answered == false %>
+     <p><%= f.submit 'Update' %></p>
+       <% else %>
+     <p><%= f.submit 'Reply' %></p>
+   <% end %>
 
 <% end %>

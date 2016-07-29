@@ -1,13 +1,5 @@
-
-<!-- <%# @comments.each do |comment| %>
-    <div class="message">
-      <p class="content"><%#= comment.comment %></p>
-      <p class="time"><%#= comment.created_at %></p>
-    </div>
-  <%#end %> -->
-
 <%= form_for :comment do |f| %>
-  <%= f.text_area :comment, size: "50x10", placeholder: 'Please write your questions and concerns here!' %>
+  <%= f.text_area :comment, size: '25x10', placeholder: 'Please write your comments here!' %>
     <spellcheck="true">
     <%= f.hidden_field :mother_id, :value => @mother_id %>
   <%= f.submit %>
