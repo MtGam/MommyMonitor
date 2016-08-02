@@ -1,6 +1,5 @@
-<div class="field">
     <p>
-      <strong><%= label_tag :stage_of_pregnancy %>:</strong>
+    <%= label_tag :stage_of_pregnancy %>:
     <%=
       f.select(:trimester,
       options_for_select(
@@ -9,16 +8,14 @@
        ['Second Trimester', 2],
        ['Third Trimester', 3]]))
     %>
-  </p>
-</div>
+    </p>
 
-  <div class="field">
     <p>
       <strong><%= f.label :date_of_birth %>:</strong>
       <%= f.date_field :dob, :prompt => "Placeholder", placeholder: "Date of Birth" %>
     </p>
+
     <p>
       <strong><%= f.label :number_of_children %>:</strong>
       <%= f.number_field :children, placeholder: "Number of Children" %>
     </p>
-  </div>

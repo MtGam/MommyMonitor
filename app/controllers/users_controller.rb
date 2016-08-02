@@ -76,16 +76,19 @@ class UsersController < ApplicationController
      redirect_to user_url(@user),
      notice: "Your trimester stage has been updated."
      return
+
    elsif params[:user] != nil &&
        (params[:user]['tri_1_1'] != nil || params[:user]['tri_2_1'] != nil || params[:user]['tri_3_1'] != nil) &&
        @user.update(user_params)
+      return
+
        if params[:user]['trimester_id'] != nil
          @comment = Comment.new(id: nil, mother_id: params[:id], commenter_id: params[:id],
            comment: params[:user]['comment'], trimester_id: params[:user]['trimester_id'], doctor_id: nil)
          @comment.save
        end
      redirect_to user_url(@user),
-     notice: "Your answers successfully logged."
+     notice: "Your answers are logged."
      return
    else
      redirect_to user_url(@user),
@@ -93,6 +96,7 @@ class UsersController < ApplicationController
      return
    end
  end
+
 
  private
 

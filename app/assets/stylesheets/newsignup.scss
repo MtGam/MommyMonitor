@@ -5,7 +5,7 @@
 .role1 {
   background-color: #fff;
   opacity: .9;
-  width: 509px;
+  width: 300px;
   margin: 10px auto 10px;
   border: 2px solid black;
   padding: 15px;
@@ -14,7 +14,7 @@
 .role2 {
   background-color: #fff;
   opacity: .9;
-  width: 509px;
+  width: 300px;
   margin: 10px auto 10px;
   border: 2px solid black;
   padding: 15px;
@@ -58,7 +58,7 @@
   font-size: 20px;
   text-align: center;
   position: inherit;;
-  width: 509px;
+  width: 300px;
   height: 50px;
   border: 2px solid black;
   padding: 10px;
@@ -72,9 +72,15 @@
   font-size: 20px;
   text-align: center;
   position: relative;
-  width: 509px;
+  width: 300px;
   height: 50px;
   border: 2px solid black;
   padding: 10px;
   margin: 10px auto 10px;
+}
+
+.mommylogo {
+  position: absolute;
+  top: 5;
+  margin-left: 25px;
 }

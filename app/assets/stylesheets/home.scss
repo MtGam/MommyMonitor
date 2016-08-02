@@ -2,12 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.body {
-  position: relative;
-}
+// .body {
+//   position: relative;
+// }
 
-.home {
-   background: url('/assets/mom-portrait.jpg') no-repeat fixed;
+body {
+   background: url('/assets/baby-18966.jpg') no-repeat fixed;
    background-size: 100%;
    -webkit-background-size: cover;
    -moz-background-size: cover;
@@ -19,13 +19,17 @@
  }
 
 .jumbotron {
-  opacity: .9;
+  background-color: #F7E6E6;
+  color: #d19d90;
+  opacity: .8;
   padding: 15px;
 }
 
 nav.navbar.navbar-inverse {
-    background: bisque;
-    border-color: bisque;
+    background: #d19d9d;
+    border-color: #d19d9d;
+    font-family: "avenir-next", helvetica, arial, sans-serif !important;
+    font-weight: lighter;
 }
 
 .navbar-inverse .navbar-brand {
@@ -33,7 +37,7 @@ nav.navbar.navbar-inverse {
 }
 
 .navbar-inverse .navbar-nav > li > a {
-    color: #7f3f1d;
+    color: white;
 }
 
 input::-webkit-input-placeholder { /* WebKit browsers */

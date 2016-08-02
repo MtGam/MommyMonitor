@@ -1,43 +1,44 @@
+
   <% if @user.errors.any? %>
-  <div class="error message">
     <h2>Invalid form. Please try again.</h2>
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
   <% end %>
 
-  <div class="field">
     <p>
-    <%= f.text_field :first_name, placeholder: "First Name" %>
-    <%= f.text_field :last_name, placeholder: "Last Name" %>
+      <%= f.label :first_name %>:
+      <%= f.text_field :first_name, placeholder: "First Name" %>
     </p>
-  </div>
 
-</br>
-
-  <div class="field">
     <p>
-    <%= f.text_field :email, placeholder: "Email" %>
-    <%= f.text_field :phone, placeholder: "Phone Number" %>
+      <%= f.label :last_name %>:
+      <%= f.text_field :last_name, placeholder: "Last Name" %>
     </p>
-  </div>
 
-</br>
-
-  <div class="field">
     <p>
-    <%= f.text_field :address, placeholder: "Address", :maxlength => 43.99%>
+      <p><%= f.label :email %>:</p>
+      <%= f.text_field :email, placeholder: "Email" %>
     </p>
-  </div>
 
-</br>
-
-  <div class="field">
     <p>
-    <%= f.password_field :password, placeholder: "Password" %>
-    <%= f.password_field :password_confirmation, placeholder: "Password confirmation" %>
+      <%= f.label :phone_number %>:
+      <%= f.text_field :phone, placeholder: "123-456-7890" %>
     </p>
-  </div>
+
+    <p>
+      <%= f.label :address %>:
+      <%= f.text_field :address, placeholder: "eg. 123 Some Street" %>
+    </p>
+
+    <p>
+      <%= f.label :password %>:
+      <%= f.password_field :password, placeholder: "Password" %>
+    </p>
+
+    <p>
+      <%= f.label :password_confirmation %>:
+      <%= f.password_field :password_confirmation, placeholder: "Password confirmation" %>
+    </p>
