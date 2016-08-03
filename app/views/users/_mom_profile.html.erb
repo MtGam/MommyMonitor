@@ -3,7 +3,7 @@
     <%= image_tag "logo3.png", :width => "204", :height => "106"%>
       <h3>MOMMY'S PROFILE</h3>
 
-      <p><h1><%= "Hello Mommy #{@user.first_name.titleize}!"%></h1></p>
+      <!-- <p><h1><%#= "Hello Mommy #{@user.first_name.titleize}!"%></h1></p> -->
   </div>
 
   <div class="profile-wrapper">
@@ -54,11 +54,20 @@
         <%=  render 'tri_3_QA'%>
       <% end %>
 
+   <ul>
 
+
+    <% @my_comments.each do |comment| %>
+      <li> <%= "[#{@user.first_name}] " + comment.comment %></li>
+    <% end %>
+
+   </ul>
       <!-- <div class="comment-form"> -->
-        <%= render 'comments/comment_form'%>
+        <!-- <%#= render 'comments/comment_form'%> -->
       <!-- </div> -->
 
     </div>
 
 </div>
+
+   <%= link_to "My History", user_mom_history_path  %>

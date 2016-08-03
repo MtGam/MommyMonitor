@@ -69,10 +69,11 @@
   <% end %>
 
 
-   <% if question_answered == false %>
-     <p><%= f.submit 'Update' %></p>
-       <% else %>
-     <p><%= f.submit 'Reply' %></p>
-   <% end %>
+
+     <p><%= f.submit 'Update3' %></p>
+
 
 <% end %>
+
+
+    <%= render 'comments/comment_form'%>
