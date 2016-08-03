@@ -1,63 +1,66 @@
-
-  <div class="toplogoprofile">
-    <%= image_tag "logo3.png", :width => "204", :height => "106"%>
-      <h3>MOMMY'S PROFILE</h3>
-
-      <p><h1><%= "Hello Mommy #{@user.first_name.titleize}!"%></h1></p>
-  </div>
+<div class="mommylogo">
+  <%= image_tag "logo3.png", :width => "204", :height => "106" %>
+</div>
 
   <div class="profile-wrapper">
     <div class="profile">
-      <h2>Mom Info</h2>
-        <p><strong>Name:</strong><%= " #{@user.first_name.titleize} #{@user.last_name.titleize}" %></p>
-        <p><strong>Phone Number:</strong><%= " #{@user.phone}" %></p>
-        <p><strong>Address:</strong><%= " #{@user.address}" %></p>
-        <p><strong>Email:</strong><%= " #{@user.email}" %></p>
-        <p><strong>Date of Birth:</strong><%= " #{@user.dob}" %></p>
-        <p><strong>Number of Children:</strong><%= " #{@user.children}" %></p>
+        <h3>MOMMY PROFILE</h3>
+          <% if notice != nil %>
+            <p style="color: red; font-weight: bold;"><%= notice %></p>
+          <% end %>
+          <p>
+            <div class="prof1">
+              <p>name: </p>
+              <p>address: </p>
+              <p>phone number: </p>
+              <p>email: </p>
+              <p>date of birth: </p>
+              <p>number of children: </p>
+            </div>
 
-        <p><strong>__________</strong></p>
+            <div class="prof2">
+              <p><%= " #{@user.first_name.titleize} #{@user.last_name.titleize}" %></p>
+              <p><%= " #{@user.address}" %></p>
+              <p><%= " #{@user.phone}" %></p>
+              <p><%= " #{@user.email}" %></p>
+              <p><%= " #{@user.dob}" %></p>
+              <p><%= " #{@user.children}" %></p>
+            </div>
 
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
+      <div class="mom-stage">
+        <%= image_tag "pregnancy-stg.png", :width => "204", :height => "106" %>
 
-        <p><strong>Edit your stage of pregnancy below for your specific set of questions:</strong></p>
-        <%= form_for @user do |f| %>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
 
-         <p><%= label_tag :stage_of_pregnancy %>:
-           <%=
-             f.select(:trimester,
-             options_for_select(
-             [['First Trimester', 1],
-              ['Second Trimester', 2],
-              ['Third Trimester', 3]],
-              selected: current_user.trimester))
-           %>
-           <%= f.submit 'Update' %>
-         </p>
-        <% end %>
+            <%= form_for @user do |f| %>
+             <p><strong>Current Stage of Pregnancy:</strong></p>
+              <p>
+               <%=
+                 f.select(:trimester,
+                 options_for_select(
+                 [['First Trimester', 1],
+                  ['Second Trimester', 2],
+                  ['Third Trimester', 3]],
+                  selected: current_user.trimester))
+               %>
+              <%= f.submit 'Update' %>
+             </p>
+            <% end %>
+      </div>
 
-      <% if notice != nil %>
-        <p style="color: blue; font-weight: bold;"><%= notice %></p>
-      <% end %>
-    <!-- </div> -->
+        <div class="tri-question">
+          <% if current_user.trimester == 1 %>
+            <%=  render 'tri_1_QA'%>
+            <% elsif current_user.trimester == 2 %>
+            <%=  render 'tri_2_QA'%>
+            <% else %>
+            <%=  render 'tri_3_QA'%>
+          <% end %>
+        </div>
 
-    <p><strong>__________</strong></p>
-
-    <!-- <div class="profile"> -->
-      <% if current_user.trimester == 1 %>
-        <%=  render 'tri_1_QA'%>
-        <% elsif current_user.trimester == 2 %>
-        <%=  render 'tri_2_QA'%>
-        <% else %>
-        <%=  render 'tri_3_QA'%>
-      <% end %>
-
-
-      <!-- <div class="comment-form"> -->
         <%= render 'comments/comment_form'%>
-      <!-- </div> -->
 
     </div>
 

@@ -2,25 +2,28 @@
 
 <div class="container">
   <div class="field2">
-    <h2>sign-up</h2>
+    <div class="field-input2">
 
-      <%= form_for @user do |f| %>
+      <h3 class="login-title">sign-up</h3>
 
-        <%= render 'user_form', f: f %>
+        <%= form_for @user do |f| %>
 
-          <h4 id="r1">Click if you're a Mommy!</h4>
-          <div class="role1">
-            <p><%= render 'mommy_form', f: f %></p>
-          </div>
+          <%= render 'user_form', f: f %>
+
+            <h4 id="r1">Click if you're a Mommy!</h4>
+              <div class="role1">
+                <p><%= render 'mommy_form', f: f %></p>
+              </div>
 
 
-          <h4 id="r2">Click if you're a Doctor!</h4>
-          <div class="role2">
-            <p><%= render 'doc_form', f: f %></p>
-          </div>
+            <h4 id="r2">Click if you're a Doctor!</h4>
+              <div class="role2">
+                <p><%= render 'doc_form', f: f %></p>
+              </div>
 
-            <%= f.submit 'Submit', class: "login-btn" %>
+              <%= f.submit 'Submit', class: "login-btn" %>
 
-      <% end %>
+        <% end %>
+    </div>
   </div>
 </div>

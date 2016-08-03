@@ -41,23 +41,23 @@ class UsersController < ApplicationController
    @user = User.find(params[:id])
 
     # For doctor
-    if current_user.mother == false
-      @comment = Comment.new(doctor_id: params[:id], commenter_id: params[:id], mother_id: @user.id,
-        comment: params[:comment]['comment'])
-      @comment.save
-      redirect_to user_url(@user), notice: "Doctor comment sent."
-      return
-    end
+    # if current_user.mother == false
+    #   @comment = Comment.new(doctor_id: params[:id], commenter_id: params[:id], mother_id: @user.id,
+    #     comment: params[:comment]['comment'])
+    #   @comment.save
+    #   redirect_to user_url(@user), notice: "Doctor comment sent."
+    #   return
+    # end
 
    # Saving reply comments.
-   if params[:comment] != nil && params[:comment]['comment'] != nil && params[:comment]['comment'].length > 0 && params[:comment]['trimester_id'] != nil
-     @comment = Comment.new(id: nil, mother_id: params[:id], commenter_id: params[:id],
-       comment: params[:comment]['comment'], trimester_id: params[:comment]['trimester_id'], doctor_id: nil)
-     @comment.save
-     redirect_to user_url(@user),
-     notice: "Your comment sent."
-     return
-   end
+  #  if params[:comment] != nil && params[:comment]['comment'] != nil && params[:comment]['comment'].length > 0 && params[:comment]['trimester_id'] != nil
+  #    @comment = Comment.new(id: nil, mother_id: params[:id], commenter_id: params[:id],
+  #      comment: params[:comment]['comment'], trimester_id: params[:comment]['trimester_id'], doctor_id: nil)
+  #    @comment.save
+  #    redirect_to user_url(@user),
+  #    notice: "Your comment sent."
+  #    return
+  #  end
 
    # Check if fields are not empty when mother is answering trimester questions.
    if params[:user_id] != nil && params[:user_id]['trimester'] == nil
