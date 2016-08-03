@@ -2,13 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.body {
-  position: relative;
-}
 
-.home {
-   background: url('/assets/mom-portrait.jpg') no-repeat fixed;
-   background-size: 100%;
+body {
+   background: url('/assets/baby-18966.jpg') fixed;
+   background-repeat: no-repeat;
+   background-color: rgba(255, 255, 255, 0.4);
    -webkit-background-size: cover;
    -moz-background-size: cover;
    -o-background-size: cover;
@@ -19,32 +17,45 @@
  }
 
 .jumbotron {
-  opacity: .9;
+  background-color: #F7E6E6;
+  color: #d19d90;
+  opacity: .8;
   padding: 15px;
 }
 
 nav.navbar.navbar-inverse {
-    background: bisque;
-    border-color: bisque;
+    background: #d19d9d;
+    border-color: #d19d9d;
+    font-family: "avenir-next", helvetica, arial, sans-serif !important;
+    font-weight: lighter;
 }
 
 .navbar-inverse .navbar-brand {
-    color: #7f3f1d;
+    color: #F7E6E6;
+    font-family: "avenir-next", helvetica, arial, sans-serif !important;
 }
 
 .navbar-inverse .navbar-nav > li > a {
-    color: #7f3f1d;
+    color: #fff;
 }
 
 input::-webkit-input-placeholder { /* WebKit browsers */
-    color:    chocolate;
+    color: lightgrey;
+    font-weight: lighter;
+    font-size: 18px;
 }
 input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    chocolate;
+    color: lightgrey;
+    font-weight: lighter;
+    font-size: 18px;
 }
 input::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:    chocolate;
+    color: lightgrey;
+    font-weight: lighter;
+    font-size: 18px;
 }
 input:-ms-input-placeholder { /* Internet Explorer 10+ */
-    color:    chocolate;
+    color: lightgrey;
+    font-weight: lighter;
+    font-size: 18px;
 }

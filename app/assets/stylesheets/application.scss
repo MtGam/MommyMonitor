@@ -25,3 +25,21 @@
 @import "newsignup";
 
 @import "comments";
+
+* {
+ box-sizing: border-box;
+}
+
+body,
+html {
+ margin: 0;
+ padding: 0;
+}
+
+.super-wrap{
+  margin: 0;
+  padding: 0;
+  background-color: rgba(255, 255, 255, 0.4);
+  height: 100%;
+  width: inherit;
+}

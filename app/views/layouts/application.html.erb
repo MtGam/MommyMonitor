@@ -4,7 +4,6 @@
 
     <title>MommyMonitor</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script type='text/javascript' src='/assets/user_signup.js'></script>
@@ -12,13 +11,16 @@
 
   </head>
 
-  <body class="<%= params['controller'] %>">
 
-    <%= render 'shared/navbar' %>
+  <body>
+    <div class="super-wrap">
 
+      <%= render 'shared/navbar' %>
 
-    <%= yield %>
+      <%= yield %>
 
+    </div>
 
   </body>
+
 </html>

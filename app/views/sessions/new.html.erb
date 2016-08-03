@@ -1,33 +1,26 @@
+<%= image_tag "logo3.png", :width => "204", :height => "106", class: "mommylogo" %>
 
-  <div class="container">
-  <% if flash[:alert] %>
-  <p id ="notice"><%= flash[:alert] %> </p>
-  <% end %>
-
-  <%= form_tag sessions_path do %>
-  <div class="toplogoprofile">
-    <%= image_tag "logo3.png", :width => "204", :height => "106"%>
-    <fieldset>
-      <legend><h2 class="sign-form">L O G - I N</h2></legend>
-  </div>
-      <div class="field">
-        <h3 class="sign-form"><%= label_tag :email, 'Email' %></h3>
-        <p><%= text_field_tag :email %></p>
-      </div>
+  <div class="container animated bounceIn">
 
       <div class="field">
-      <h3 class="sign-form"><%= label_tag :password, 'Password' %></h3>
-        <p><%= password_field_tag :password %></p>
+        <div class="field-input">
+
+          <% if flash[:alert] %>
+          <p id ="notice"><%= flash[:alert] %> </p>
+          <% end %>
+
+          <%= form_tag sessions_path do %>
+
+          <h3 class="login-title">login</h3>
+          <h4><%= label_tag :email, 'email' %></h4>
+          <p><%= text_field_tag :email %></p>
+
+          <h4><%= label_tag :password, 'password' %></h4>
+          <p><%= password_field_tag :password %></p>
+
+          <%= submit_tag "login", class: "login-btn" %>
+
+        <% end %>
       </div>
-
-    </br>
-    </br>
-
-      <div>
-        <%= submit_tag "Login", class: 'submit_button' %>
-      </div>
-
-  <!-- </fieldset> -->
-
-  <% end %>
+    </div>
 </div>

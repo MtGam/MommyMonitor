@@ -1,4 +1,4 @@
-<h1>First Trimester Question</h1>
+<div class="tri-title"><h3>FIRST TRIMESTER QUESTION</h3></div>
 
   <%= form_for @user do |f|%>
     <%
@@ -62,12 +62,7 @@
     <% end %>
 
 
-
-    <!-- <%# if question_answered == true %> -->
       <p><%= f.submit 'Update1', class: "submit2_button" %></p>
-        <!-- <%# else %>
-      <p><%#= f.submit 'Reply' %></p> -->
-    <!-- <%# end %> -->
   <% end %>
 
        <%= render 'comments/comment_form'%>
