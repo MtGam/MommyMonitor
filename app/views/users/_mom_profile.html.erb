@@ -58,7 +58,11 @@
 
 
     <% @my_comments.each do |comment| %>
-      <li> <%= "[#{@user.first_name}] " + comment.comment %></li>
+      <% if comment.doctor_id == nil %>
+        <li> <%= "#{@user.first_name} " + comment.comment %></li>
+      <%else%>
+        <li> <%= "#{@doctor.first_name} " + comment.comment %></li>
+      <% end %>
     <% end %>
 
    </ul>

@@ -16,12 +16,14 @@
   </p>
 
 <ul>
+<p style="color: white;"> Comment for Trimester 1 </p>
   <% @comments.each do |comment| %>
       <% if comment.trimester_id == 1 %>
-      <li> <p style="color: white;"> <%= comment.trimester_id %> </p>
-           <p style="color: white;"> <%= comment.comment %> </p>
-          <p style="color: white;"> <%= comment.mother_id %> </p>
-      </li>
+           <% if comment.doctor_id == nil %>
+           <li><p style="color: white;"> <%= "#{@user.first_name} " + comment.comment %></p></li>
+           <%else%>
+           <li> <p style="color: white;"> <%= "#{@doctor.first_name} " + comment.comment %> </p></li>
+           <% end %>
       <% end %>
  <% end %>
 </ul>
@@ -41,14 +43,16 @@
 </p>
 
 <ul>
-<% @comments.each do |comment| %>
-    <% if comment.trimester_id == 2 %>
-    <li> <p style="color: white;"> <%= comment.trimester_id %> </p>
-         <p style="color: white;"> <%= comment.comment %> </p>
-        <p style="color: white;"> <%= 'mother_id' + comment.mother_id.to_s %> </p>
-    </li>
-    <% end %>
-<% end %>
+  <p style="color: white;"> Comment for Trimester 2 </p>
+  <% @comments.each do |comment| %>
+      <% if comment.trimester_id == 2 %>
+           <% if comment.doctor_id == nil %>
+           <li><p style="color: white;"> <%= "#{@user.first_name} " + comment.comment %></p></li>
+           <%else%>
+           <li> <p style="color: white;"> <%= "#{@doctor.first_name} " + comment.comment %> </p></li>
+           <% end %>
+      <% end %>
+ <% end %>
 </ul>
 
   <p style="color: white;"> [ Third Trimester ] </p>
@@ -69,12 +73,14 @@
   </p>
 
 <ul>
+  <p style="color: white;"> Comment for Trimester 3 </p>
   <% @comments.each do |comment| %>
       <% if comment.trimester_id == 3 %>
-      <li> <p style="color: white;"> <%= comment.trimester_id %> </p>
-           <p style="color: white;"> <%= comment.comment %> </p>
-          <p style="color: white;"> <%= comment.mother_id %> </p>
-      </li>
+           <% if comment.doctor_id == nil %>
+             <li><p style="color: white;"> <%= "#{@user.first_name} " + comment.comment %></p></li>
+           <%else%>
+             <li> <p style="color: white;"> <%= "#{@doctor.first_name} " + comment.comment %> </p></li>
+           <% end %>
       <% end %>
  <% end %>
 </ul>
