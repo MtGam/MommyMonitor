@@ -22,7 +22,7 @@ class UsersController < ApplicationController
    @comment = Comment.new
 
    @my_comments = Comment.where(mother_id: @user.id, trimester_id: @user.trimester)
-   @doctor = User.where(mother: false)
+   @doctor = User.find_by(mother: false)     #this work because we only have one doctor.
    # @my_comments = []
  end
 
@@ -121,6 +121,7 @@ end
 def mom_history
   @user = User.find(params[:id])
   @comments = Comment.where(mother_id: params[:id])
+  @doctor = User.find_by(mother: false)     #this work because we only have one doctor.
 
 end
 

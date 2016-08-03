@@ -34,6 +34,7 @@ class CommentsController < ApplicationController
      else
        render :index, :flash => { :fail => "failed!" }
      end
+
   end
 
   def edit
