@@ -60,8 +60,18 @@
           <% end %>
         </div>
 
-        <%= render 'comments/comment_form'%>
+
+      <ul>
+        <% @my_comments.each do |comment| %>
+          <% if comment.doctor_id == nil %>
+            <li> <%= "[#{@user.first_name}] " + comment.comment %></li>
+            <% else %>
+            <li> <%= "#{@doctor.first_name} " + comment.comment %></li>
+          <% end %>
+        <% end %>
+      </ul>
 
     </div>
-
 </div>
+
+   <%= link_to "My History", user_mom_history_path  %>

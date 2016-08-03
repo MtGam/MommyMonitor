@@ -61,9 +61,8 @@
       </ul>
     <% end %>
 
-    <% if question_answered == false %>
-      <p><%= f.submit 'Update', class: "submit2_button" %></p>
-        <% else %>
-      <p><%= f.submit 'Reply', class: "submit2_button" %></p>
-    <% end %>
+
+      <p><%= f.submit 'Update1', class: "submit2_button" %></p>
   <% end %>
+
+       <%= render 'comments/comment_form'%>
