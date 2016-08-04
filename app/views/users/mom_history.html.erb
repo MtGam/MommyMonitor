@@ -2,7 +2,7 @@
 
 <div class="profile-wrapper">
   <div class="profile">
-    <h3><%= "#{@user.first_name.upcase} #{@user.last_name.upcase}'s HISTORY " %></h3>
+    <h2 class="page-title"><%= "#{@user.first_name} #{@user.last_name}'s History " %></h2>
     <br/>
 
     <% if @user.mother == true %>
@@ -11,7 +11,7 @@
         <div class="tri-title">
             <%= image_tag "blue-heart.png", :width => "50", :height => "65" %>
           <!-- <#% render 'mom_profile'%> -->
-            <h4>FIRST TRIMESTER</h4>
+            <h3 class="page-title">First Trimester</h3>
           </div>
 
             <p>

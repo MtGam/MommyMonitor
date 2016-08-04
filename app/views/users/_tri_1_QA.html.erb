@@ -1,72 +1,97 @@
 <div class="tri-title"><h3>FIRST TRIMESTER QUESTION</h3></div>
+  <% if current_user.mother == true %>
 
-  <%= form_for @user do |f|%>
-    <%
-     question_answered = false
-     if current_user.tri_1_1 != nil &&
-           current_user.tri_1_2 != nil &&
-           current_user.tri_1_3 != nil
-         question_answered = true
-     end
-    %>
+    <%= form_for @user do |f|%>
+      <%
+       question_answered = false
+       if current_user.tri_1_1 != nil &&
+             current_user.tri_1_2 != nil &&
+             current_user.tri_1_3 != nil
+           question_answered = true
+       end
+      %>
 
-    <p>1. Are you having any cramps or pain?
-     <% if question_answered == true %>
-     <b><%= current_user.tri_1_1 %></b>
-     <% end %>
-    </p>
+        <p>
+          1. Are you having any cramps or pain?
+         <% if question_answered == true %>
+         <b><%= current_user.tri_1_1 %></b>
+         <% end %>
+        </p>
 
-    <% if question_answered == false %>
-      <ul>
-         <%= f.label :tri_1_1, "Yes" %>
-         <%= f.radio_button :tri_1_1, "Yes" %>
-         <%= f.label :tri_1_1, "No" %>
-         <%= f.radio_button :tri_1_1, "No" %>
-         <%= f.label :tri_1_1, "N/A" %>
-         <%= f.radio_button :tri_1_1, "N/A" %>
-      </ul>
+        <% if question_answered == false %>
+          <ul>
+             <%= f.label :tri_1_1, "Yes" %>
+             <%= f.radio_button :tri_1_1, "Yes" %>
+             <%= f.label :tri_1_1, "No" %>
+             <%= f.radio_button :tri_1_1, "No" %>
+             <%= f.label :tri_1_1, "N/A" %>
+             <%= f.radio_button :tri_1_1, "N/A" %>
+          </ul>
+        <% end %>
+
+        <p>
+          2. Do you feel feverish with a very high body temperature?
+          <% if question_answered == true %>
+          <b><%= current_user.tri_1_2 %></b>
+          <% end %>
+        </p>
+
+        <% if question_answered == false %>
+          <ul>
+            <%= f.label :tri_1_2, "Yes" %>
+            <%= f.radio_button :tri_1_2, "Yes" %>
+            <%= f.label :tri_1_2, "No" %>
+            <%= f.radio_button :tri_1_2, "No" %>
+            <%= f.label :tri_1_2, "N/A" %>
+            <%= f.radio_button :tri_1_2, "N/A" %>
+          </ul>
+        <% end %>
+
+        <p>
+          3. Are you having excessive nausea and vomitting?
+         <% if question_answered == true %>
+          <b><%= current_user.tri_1_3 %></b>
+         <% end %>
+        </p>
+
+        <% if question_answered == false %>
+          <ul>
+            <%= f.label :tri_1_3, "Yes" %>
+            <%= f.radio_button :tri_1_3, "Yes" %>
+            <%= f.label :tri_1_3, "No" %>
+            <%= f.radio_button :tri_1_3, "No" %>
+            <%= f.label :tri_1_3, "N/A" %>
+            <%= f.radio_button :tri_1_3, "N/A" %>
+          </ul>
+
+        <% end %>
+
+
+          <p><%= f.submit 'Update' %></p>
     <% end %>
 
-    <p>2. Do you feel feverish with a very high body temperature?
-      <% if question_answered == true %>
-      <b><%= current_user.tri_1_2 %></b>
+
+  <% else %>
+
+        <p>
+          1. Are you having any cramps or pain?
+            <ul><li><%= @user.tri_1_1 %></li></ul>
+        </p>
+
+         <p>
+          2. Do you feel feverish with a very high body temperature?
+            <ul><li><%= @user.tri_1_2 %></li></ul>
+         </p>
+
+         <p>
+           3. Are you having excessive nausea and vomitting?
+             <ul><li><%= @user.tri_1_3 %></li></ul>
+          </p>
+
       <% end %>
-    </p>
-
-    <% if question_answered == false %>
-      <ul>
-        <%= f.label :tri_1_2, "Yes" %>
-        <%= f.radio_button :tri_1_2, "Yes" %>
-        <%= f.label :tri_1_2, "No" %>
-        <%= f.radio_button :tri_1_2, "No" %>
-        <%= f.label :tri_1_2, "N/A" %>
-        <%= f.radio_button :tri_1_2, "N/A" %>
-      </ul>
-    <% end %>
-
-    <p>3. Are you having excessive nausea and vomitting?
-     <% if question_answered == true %>
-      <b><%= current_user.tri_1_3 %></b>
-     <% end %>
-    </p>
-
-    <% if question_answered == false %>
-      <ul>
-        <%= f.label :tri_1_3, "Yes" %>
-        <%= f.radio_button :tri_1_3, "Yes" %>
-        <%= f.label :tri_1_3, "No" %>
-        <%= f.radio_button :tri_1_3, "No" %>
-        <%= f.label :tri_1_3, "N/A" %>
-        <%= f.radio_button :tri_1_3, "N/A" %>
-      </ul>
-    <% end %>
 
 
-      <p><%= f.submit 'Update', class: "submit2_button" %></p>
-  <% end %>
 
-  <%= image_tag "comments.png", :width => "550", :height => "400", class: "comment-box" %>
+  <!-- <%#= image_tag "speech-bubble.png", :width => "500", :height => "400", class: "comment-box" %> -->
 
-    <div class="comment-form">
       <%= render 'comments/comment_form' %>
-    </div>

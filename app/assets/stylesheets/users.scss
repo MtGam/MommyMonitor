@@ -14,7 +14,7 @@
 }
 
 .profile {
-    overflow: scroll;
+    // overflow: hidden;
     background-color: #fff3f4;
     color: #734d26;
     opacity: 0.8;
@@ -26,6 +26,7 @@
     border: 3px solid #A2DFE8;
     border-radius: 7px;
     padding: 25px;
+    position: relative;
 }
 
 .prof2 {
@@ -124,4 +125,26 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background: #8EDBE6;
   text-decoration: none;
+}
+
+.mom-btn {
+  -webkit-border-radius: 7 !important;
+  -moz-border-radius: 7 !important;
+  border-radius: 7px !important;
+  border: 1px solid lightgrey;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  background: #A2DFE8;
+  padding: 3px 15px;
+  text-decoration: none;
+}
+
+.mom-btn:hover {
+  background: #8EDBE6;
+  text-decoration: none;
+}
+
+.page-title {
+  font-family: 'Alegreya Sans SC', sans-serif;
 }

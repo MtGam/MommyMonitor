@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
        @comment.trimester_id = @user.trimester
 
     if @comment.save!
-       redirect_to user_path(current_user), :flash => { :success => "Message" }
+       redirect_to user_path(@user), :flash => { :success => "Message" }
      else
        render :index, :flash => { :fail => "failed!" }
      end

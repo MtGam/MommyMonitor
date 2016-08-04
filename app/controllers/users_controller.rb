@@ -17,7 +17,7 @@ class UsersController < ApplicationController
    current_user
    @user = User.find(params[:id])
 
-   logger.debug @user.inspect
+  #  logger.debug @user.inspect
    @mothers = User.mothers
    @comment = Comment.new
 
@@ -28,6 +28,7 @@ class UsersController < ApplicationController
 
 def create
   @user = User.new(user_params)
+  @user.mother = true
 
   if @user.save
     session[:user_id] = @user.id
@@ -46,13 +47,13 @@ def update
   @user = User.find(params[:id])
 
    # For doctor
-   if current_user.mother == false
-     @comment = Comment.new(doctor_id: params[:id], commenter_id: params[:id], mother_id: @user.id,
-       comment: params[:comment]['comment'])
-     @comment.save
-     redirect_to user_url(@user), notice: "Doctor comment sent."
-     return
-   end
+  #  if current_user.mother == false
+  #    @comment = Comment.new(doctor_id: params[:id], commenter_id: params[:id], mother_id: @user.id,
+  #      comment: params[:comment]['comment'])
+  #    @comment.save
+  #    redirect_to user_url(@user), notice: "Doctor comment sent."
+  #    return
+  #  end
 
   # Saving reply comments.
   if params[:comment] != nil && params[:comment]['comment'] != nil && params[:comment]['comment'].length > 0 && params[:comment]['trimester_id'] != nil
@@ -64,7 +65,7 @@ def update
     return
   end
 
-  if params[:user][:trimester] != nil && @user.trimester != params[:user][:trimester] && @user.update(user_params)
+  if params[:user] != nil && params[:user][:trimester] != nil && @user.trimester != params[:user][:trimester] && @user.update(user_params)
     redirect_to user_url(@user),
     notice: "Your trimester stage has been updated."
     return
@@ -87,7 +88,9 @@ def update
           notice: "Your answers successfully logged."
           return
       end
-
+  else
+    redirect_to user_url(@user), notice: "Error: Please answer all questions."
+    return
   end
 
 

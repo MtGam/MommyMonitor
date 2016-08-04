@@ -1,9 +1,10 @@
 <!-- <%#= form_for [@user, @comment] do |f| %> -->
 
-
-<%= form_for [@user, @comment] do |f| %>
-  <%= f.text_area :comment, size: '30x8', placeholder: 'Please write your comments here!' %>
-    <spellcheck="true">
-    <%= f.hidden_field :mother_id, :value => @mother_id %>
-  <%= f.submit %></p>
-<% end %>
+<div class="comment-form">
+  <%= form_for [@user, @comment] do |f| %>
+    <%= f.text_area :comment, size: '40x8', placeholder: 'Please write your comments here!' %>
+      <spellcheck="true">
+      <%= f.hidden_field :mother_id, :value => @mother_id %>
+      </div>
+    <%= f.submit %></p>
+  <% end %>
