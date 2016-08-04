@@ -5,6 +5,7 @@
   <div class="profile-wrapper">
     <div class="profile">
         <h3><%= "MOMMY #{@user.first_name.upcase}" %>'S PROFILE</h3>
+
         <%= link_to "My History", user_mom_history_path, class: "mom-btn" %>
 
           <p>
@@ -35,20 +36,17 @@
 
             <%= form_for @user do |f| %>
               <% if current_user.mother == true %>
-              <p><strong>Current Stage of Pregnancy:</strong></p>
-              <p>
-               <%=
-                 f.select(:trimester,
-                 options_for_select(
-                 [['First Trimester', 1],
-                  ['Second Trimester', 2],
-                  ['Third Trimester', 3]],
-                  selected: current_user.trimester))
-               %>
-              <%= f.submit 'Update' %>
-              <% else %>
-                <%= 'You cannot change the stage of trimester.' %>
-             </p>
+
+                  <p><strong>Current Stage of Pregnancy:</strong></p>
+                  <p>
+                   <%=
+                     f.select(:trimester,
+                     options_for_select(
+                     trimesters_for_select,
+                      selected: current_user.trimester))
+                   %>
+                  <%= f.submit 'Update' %>
+                 </p>
               <% end %>
             <% end %>
       </div>
@@ -69,10 +67,12 @@
             <% if comment.doctor_id == nil %>
             <div class="mom-cmnt">
               <li><p><%= "#{@user.first_name}: " + " " + comment.comment %></p></li>
+              <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
             </div>
             <%else%>
             <div class="doc-cmnt">
               <li><p><%= "#{@doctor.first_name}: " + " " + comment.comment %> </p></li>
+              <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
             </div>
             <% end %>
           <% end %>

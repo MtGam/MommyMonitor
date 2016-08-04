@@ -87,8 +87,7 @@
 
   <% end %>
 
-  <%= image_tag "comments.png", :width => "550", :height => "400", class: "comment-box" %>
 
-    <div class="comment-form">
-      <%= render 'comments/comment_form' %>
-    </div>
+  <% if current_user.tri_3_1 == nil && current_user.tri_3_2 == nil && current_user.tri_3_3 == nil %> <!--once mother answer questions on 2nd trimester, they cannot create comment on 1st trimester.-->
+    <%= render 'comments/comment_form'%>
+  <% end %>
