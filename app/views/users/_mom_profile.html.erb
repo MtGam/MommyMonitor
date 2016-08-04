@@ -4,7 +4,7 @@
 
   <div class="profile-wrapper">
     <div class="profile">
-        <h3>MOMMY PROFILE</h3>
+        <h3><%= 'MOMMY' " #{@user.first_name.upcase}"%>'S PROFILE</h3>
           <% if notice != nil %>
             <p style="color: red; font-weight: bold;"><%= notice %></p>
           <% end %>
@@ -35,7 +35,8 @@
           <% end %>
 
             <%= form_for @user do |f| %>
-             <p><strong>Current Stage of Pregnancy:</strong></p>
+              <% if current_user.mother == true %>
+              <p><strong>Current Stage of Pregnancy:</strong></p>
               <p>
                <%=
                  f.select(:trimester,
@@ -46,14 +47,17 @@
                   selected: current_user.trimester))
                %>
               <%= f.submit 'Update' %>
+              <% else %>
+                <%= puts 'You cannot change the stage of trimester.' %>
              </p>
+              <% end %>
             <% end %>
       </div>
 
         <div class="tri-question">
-          <% if current_user.trimester == 1 %>
+          <% if @user.trimester == 1 %>
             <%=  render 'tri_1_QA'%>
-            <% elsif current_user.trimester == 2 %>
+            <% elsif @user.trimester == 2 %>
             <%=  render 'tri_2_QA'%>
             <% else %>
             <%=  render 'tri_3_QA'%>
@@ -64,14 +68,14 @@
       <ul>
         <% @my_comments.each do |comment| %>
           <% if comment.doctor_id == nil %>
-            <li> <%= "[#{@user.first_name}] " + comment.comment %></li>
+            <li> <%= "#{@user.first_name} " + comment.comment %></li>
             <% else %>
             <li> <%= "#{@doctor.first_name} " + comment.comment %></li>
           <% end %>
         <% end %>
       </ul>
 
-   <%= link_to "My History", user_mom_history_path  %>
+      <%= link_to "My History", user_mom_history_path  %>
 
     </div>
 </div>
