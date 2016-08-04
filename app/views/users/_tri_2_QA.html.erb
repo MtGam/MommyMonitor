@@ -1,74 +1,92 @@
 <div class="tri-title"><h3>SECOND TRIMESTER QUESTION</h3></div>
+<% if current_user.mother == true %>
 
-  <%= form_for @user do |f|%>
-    <%
-      question_answered = false
-        if current_user.tri_2_1 != nil &&
-              current_user.tri_2_2 != nil &&
-              current_user.tri_2_3 != nil
-            question_answered = true
-        end
-    %>
+    <%= form_for @user do |f|%>
+      <%
+        question_answered = false
+          if current_user.tri_2_1 != nil &&
+                current_user.tri_2_2 != nil &&
+                current_user.tri_2_3 != nil
+              question_answered = true
+          end
+      %>
 
-    <p>1. Are you having an increase pelvic pressure and/or unusual discharge, eg. bleeding?
-      <% if question_answered == true %>
-        <b><%= current_user.tri_2_1 %></b>
+      <p>1. Are you having an increase pelvic pressure and/or unusual discharge, eg. bleeding?
+        <% if question_answered == true %>
+          <b><%= current_user.tri_2_1 %></b>
+        <% end %>
+      </p>
+
+      <% if question_answered == false %>
+        <ul>
+          <%= f.label :tri_2_1, "Yes" %>
+          <%= f.radio_button :tri_2_1, "Yes" %>
+          <%= f.label :tri_2_1, "No" %>
+          <%= f.radio_button :tri_2_1, "No" %>
+          <%= f.label :tri_2_1, "N/A" %>
+          <%= f.radio_button :tri_2_1, "N/A" %>
+        </ul>
       <% end %>
-    </p>
 
-    <% if question_answered == false %>
-      <ul>
-        <%= f.label :tri_2_1, "Yes" %>
-        <%= f.radio_button :tri_2_1, "Yes" %>
-        <%= f.label :tri_2_1, "No" %>
-        <%= f.radio_button :tri_2_1, "No" %>
-        <%= f.label :tri_2_1, "N/A" %>
-        <%= f.radio_button :tri_2_1, "N/A" %>
-      </ul>
+
+      <p>2. Are you having headaches that are not relieved with over-the-counter
+        medications or have visual changes associated with them, persistent vomiting, and upper abdominal pain?
+        <% if question_answered == true %>
+          <b><%= current_user.tri_2_2 %></b>
+        <% end %>
+      </p>
+
+      <% if question_answered == false %>
+        <ul>
+          <%= f.label :tri_2_2, "Yes" %>
+          <%= f.radio_button :tri_2_2, "Yes" %>
+          <%= f.label :tri_2_2, "No" %>
+          <%= f.radio_button :tri_2_2, "No" %>
+          <%= f.label :tri_2_2, "N/A" %>
+          <%= f.radio_button :tri_2_2, "N/A" %>
+        </ul>
+      <% end %>
+
+
+      <p>3.  Do any of these symptoms apply to you? Vaginal pressure, Low-back pain, Frequent urination, Diarrhea, Increased vaginal discharge, Tightness in the lower abdomen
+        <% if question_answered == true %>
+          <b><%= current_user.tri_2_3 %></b>
+        <% end %>
+      </p>
+
+      <% if question_answered == false %>
+        <ul>
+          <%= f.label :tri_2_3, "Yes" %>
+          <%= f.radio_button :tri_2_3, "Yes" %>
+          <%= f.label :tri_2_3, "No" %>
+          <%= f.radio_button :tri_2_3, "No" %>
+          <%= f.label :tri_2_3, "N/A" %>
+          <%= f.radio_button :tri_2_3, "N/A" %>
+        </ul>
+      <% end %>
+
+              <p><%= f.submit 'Update2' %></p>
+
     <% end %>
 
+  <% else%>
 
-    <p>2. Are you having headaches that are not relieved with over-the-counter
-      medications or have visual changes associated with them, persistent vomiting, and upper abdominal pain?
-      <% if question_answered == true %>
-        <b><%= current_user.tri_2_2 %></b>
-      <% end %>
-    </p>
+      <p>
+        1. Are you having an increase pelvic pressure and/or unusual discharge, eg. bleeding?
+         <ul><li><%= @user.tri_2_1 %></li></ul>
+      </p>
+      <p>
+        2. Are you having headaches that are not relieved with over-the-counter
+          medications or have visual changes associated with them, persistent vomiting, and upper abdominal pain?
+         <ul><li><%= @user.tri_2_2 %></li></ul>
+      </p>
 
-    <% if question_answered == false %>
-      <ul>
-        <%= f.label :tri_2_2, "Yes" %>
-        <%= f.radio_button :tri_2_2, "Yes" %>
-        <%= f.label :tri_2_2, "No" %>
-        <%= f.radio_button :tri_2_2, "No" %>
-        <%= f.label :tri_2_2, "N/A" %>
-        <%= f.radio_button :tri_2_2, "N/A" %>
-      </ul>
-    <% end %>
+      <p>
+        3.  Do any of these symptoms apply to you? Vaginal pressure, Low-back pain, Frequent urination, Diarrhea, Increased vaginal discharge, Tightness in the lower abdomen
+        <ul><li><%= @user.tri_2_3 %></li></ul>
+      </p>
 
+  <% end %>
 
-    <p>3.  Do any of these symptoms apply to you? Vaginal pressure, Low-back pain, Frequent urination, Diarrhea, Increased vaginal discharge, Tightness in the lower abdomen
-      <% if question_answered == true %>
-        <b><%= current_user.tri_2_3 %></b>
-      <% end %>
-    </p>
-
-    <% if question_answered == false %>
-      <ul>
-        <%= f.label :tri_2_3, "Yes" %>
-        <%= f.radio_button :tri_2_3, "Yes" %>
-        <%= f.label :tri_2_3, "No" %>
-        <%= f.radio_button :tri_2_3, "No" %>
-        <%= f.label :tri_2_3, "N/A" %>
-        <%= f.radio_button :tri_2_3, "N/A" %>
-      </ul>
-    <% end %>
-
-
-
-        <p><%= f.submit 'Update2' %></p>
-
-
-<% end %>
 
     <%= render 'comments/comment_form'%>

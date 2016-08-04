@@ -1,6 +1,9 @@
 
 <div class="container">
 
+  <% if notice != nil %>
+    <p style="color: red; font-weight: bold;"><%= notice %></p>
+  <% end %>
 
 
   <% if @user.mother == false %>
