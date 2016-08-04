@@ -1,9 +1,25 @@
 $(document).on('ready page:load', function(){
-//  $('.role').accordion({collapsible: true, active: false});
   $('.role1').hide();
   $('.role2').hide();
 });
+
 $(document).ready(function(){
+  $('#r1').hover(function(){
+    $(this).css('background-color', '#ffe6e6'); 
+  }, function () {
+    $(this).css('background-color', '#fff');
+  });
+});
+
+$(document).ready(function(){
+  $('#r2').hover(function(){
+    $(this).css('background-color', '#ffe6e6');
+  }, function () {
+    $(this).css('background-color', '#fff');
+  });
+});
+
+  $(document).ready(function(){
     $("#r1").click(function(){
       $('#user_doc_qual').val('');
       $('#user_regis_number').val('');
@@ -18,5 +34,4 @@ $(document).ready(function(){
       $('.role2').show();
       $('.role1').hide();
     });
-
 });

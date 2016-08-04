@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :comments
-  end  
+  end
 
   resources :sessions, only: [:new, :create, :destroy]
 
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     delete 'logout' => :destroy
   end
 
+ get '/users/mom_history/:id',  to: "users#mom_history", as: "user_mom_history"
 
 
 

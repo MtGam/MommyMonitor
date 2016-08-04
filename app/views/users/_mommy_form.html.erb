@@ -1,26 +1,21 @@
-  <div class="field">
+    <p>
+    <%= label_tag :stage_of_pregnancy %>
+    <%=
+      f.select(:trimester,
+      options_for_select(
+      [['Please select one', ''],
+       ['First Trimester', 1],
+       ['Second Trimester', 2],
+       ['Third Trimester', 3]]))
+    %>
+    </p>
+
     <p>
       <%= f.label :date_of_birth %>
-      <%= f.date_field :dob, placeholder: "Date of Birth" %>
+      <%= f.date_field :dob %>
     </p>
-  </div>
 
-  <div class="field">
     <p>
       <%= f.label :number_of_children %>
-      <%= f.number_field :children, placeholder: "Number of Children" %>
+      <%= f.number_field :children %>
     </p>
-  </div>
-
-  <div class="field">
-      <p><%= label_tag :stage_of_pregnancy %>:
-      <%=
-        f.select(:trimester,
-        options_for_select(
-        [['Please select one', ''],
-         ['First Trimester', 1],
-         ['Second Trimester', 2],
-         ['Third Trimester', 3]]))
-      %>
-    </p>
-  </div>

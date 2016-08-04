@@ -1,0 +1,46 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Mommy Monitor</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <% current_user %>
+      <% if current_user %>
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to "Home", root_path, :class => "glyphicon glyphicon-home" %></li>
+        <li><%= link_to "MyProfile", user_path(current_user), :class => "glyphicon glyphicon-folder-open" %></li>
+          <!-- <ul class="nav navbar-nav navbar-left">
+
+            <span class="glyphicon glyphicon-envelope"><li class="dropdown"></span>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">My Profile</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Doctor Profile</a></li>
+              </ul>
+            </li>
+          </ul> -->
+
+        <li><%= link_to "LogOut", session_path("current"), :method => :delete, :class => "glyphicon glyphicon-log-out" %></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-left">
+
+      <% else %>
+
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to "Home", root_path, :class => "glyphicon glyphicon-home" %></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to "SignUp", new_user_path, :class => "glyphicon glyphicon-user" %></li>
+        <li><%= link_to "LogIn", new_session_path, :class => "glyphicon glyphicon-log-in" %></li>
+      </ul>
+
+      <% end %>
+
+    </ul>
+
+
+  </div>
+</nav>

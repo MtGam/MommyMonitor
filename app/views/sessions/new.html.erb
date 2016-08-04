@@ -1,27 +1,26 @@
-<div>
-  <% if flash[:alert] %>
-  <p id ="notice"><%= flash[:alert] %> </p>
-  <% end %>
+<%= image_tag "logo3.png", :width => "204", :height => "106", class: "mommylogo" %>
 
-  <%= form_tag '/sessions' do %>
-  <fieldset>
-    <legend>Please Log In </legend>
-      <div>
-        <%= label_tag :email, 'Email' %>
-        <%= text_field_tag :email%>
+  <div class="container animated bounceIn">
+
+      <div class="field">
+        <div class="field-input">
+
+          <% if flash[:alert] %>
+          <p id ="notice"><%= flash[:alert] %> </p>
+          <% end %>
+
+          <%= form_tag sessions_path do %>
+
+          <h3 class="login-title">login</h3>
+          <h4><%= label_tag :email, 'email' %></h4>
+          <p><%= text_field_tag :email %></p>
+
+          <h4><%= label_tag :password, 'password' %></h4>
+          <p><%= password_field_tag :password %></p>
+
+          <%= submit_tag "login", class: "login-btn" %>
+
+        <% end %>
       </div>
-
-      <div>
-        <%= label_tag :password, 'Password' %>
-        <%= text_field_tag :password %>
-      </div>
-
-      <div>
-        <%= submit_tag "Login" %>
-      </div>
-
-  </fieldset>
-
-  <% end %>
-
+    </div>
 </div>

@@ -1,3 +1,61 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body {
+   background: url('/assets/baby-18966.jpg') fixed;
+   background-repeat: no-repeat;
+   background-color: rgba(255, 255, 255, 0.4);
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   margin: 0;
+   padding: 0;
+   height: 100%;
+   width: 100%;
+ }
+
+.jumbotron {
+  background-color: #F7E6E6;
+  color: #d19d90;
+  opacity: .8;
+  padding: 15px;
+}
+
+nav.navbar.navbar-inverse {
+    background: #d19d9d;
+    border-color: #d19d9d;
+    font-family: "avenir-next", helvetica, arial, sans-serif !important;
+    font-weight: lighter;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #F7E6E6;
+    font-family: "avenir-next", helvetica, arial, sans-serif !important;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+
+input::-webkit-input-placeholder { /* WebKit browsers */
+    color: lightgrey;
+    font-weight: lighter;
+    font-size: 18px;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: lightgrey;
+    font-weight: lighter;
+    font-size: 18px;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: lightgrey;
+    font-weight: lighter;
+    font-size: 18px;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: lightgrey;
+    font-weight: lighter;
+    font-size: 18px;
+}
