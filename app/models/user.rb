@@ -13,4 +13,15 @@ class User < ApplicationRecord
   has_secure_password
   has_many :comments
   # accepts_nested_attributes_for: :comment
+
+  def remaining_trimesters
+     case trimester
+     when 3
+       [3]
+     when 2
+       [2, 3]
+     else
+       [1, 2, 3]
+     end 
+  end
 end

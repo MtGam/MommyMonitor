@@ -87,4 +87,6 @@
       <% end %>
 
 
-       <%= render 'comments/comment_form'%>
+      <% if current_user.tri_2_1 == nil && current_user.tri_2_2 == nil && current_user.tri_2_3 == nil %> <!--once mother answer questions on 2nd trimester, they cannot create comment on 1st trimester.--> 
+         <%= render 'comments/comment_form'%>
+      <% end %>

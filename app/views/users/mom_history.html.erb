@@ -1,90 +1,101 @@
-<h1 style="color: white;"><%= "#{@user.first_name}'s History " %></h1>
+<h1><%= "#{@user.first_name}'s History " %></h1>
 
-<% if @user.mother == true %>
-<!-- <#% render 'mom_profile'%> -->
-  <p style="color: white;"> [ First Trimester ] </p>
+ <% if @user.mother == true %>
 
-  <p style="color: white;">1. Are you having any cramps or pain?</p>
-    <b style="color: white;"><%= @user.tri_1_1 %></b>
+    <% if @user.tri_1_1 != nil && @user.tri_1_2 != nil && @user.tri_1_3 != nil %>
+        <p> [ First Trimester ] </p>
 
-  <p style="color: white;">2. Do you feel feverish with a very high body temperature?
-    <b style="color: white;"><%= @user.tri_1_2 %></b>
-  </p>
+        <p>1. Are you having any cramps or pain?</p>
+          <b><%= @user.tri_1_1 %></b>
 
-  <p style="color: white;">3. Are you having excessive nausea and vomitting?
-    <b style="color: white;"><%= @user.tri_1_3 %></b>
-  </p>
+        <p>2. Do you feel feverish with a very high body temperature?
+          <b><%= @user.tri_1_2 %></b>
+        </p>
 
-<ul>
-<p style="color: white;"> Comment for Trimester 1 </p>
-  <% @comments.each do |comment| %>
-      <% if comment.trimester_id == 1 %>
-           <% if comment.doctor_id == nil %>
-           <li><p style="color: white;"> <%= "#{@user.first_name} " + comment.comment %></p></li>
-           <%else%>
-           <li> <p style="color: white;"> <%= "#{@doctor.first_name} " + comment.comment %> </p></li>
-           <% end %>
+        <p>3. Are you having excessive nausea and vomitting?
+          <b><%= @user.tri_1_3 %></b>
+        </p>
+
+      <ul>
+      <p> Comment for Trimester 1 </p>
+        <% @comments.each do |comment| %>
+            <% if comment.trimester_id == 1 %>
+                 <% if comment.doctor_id == nil %>
+                 <li><p> <%= "#{@user.first_name} " + comment.comment %></p></li>
+                     <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+                 <%else%>
+                 <li><p> <%= "#{@doctor.first_name} " + comment.comment %> </p></li>
+                     <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+                 <% end %>
+            <% end %>
+       <% end %>
+      </ul>
+    <% end %>
+
+    <% if @user.tri_2_1 != nil && @user.tri_2_2 != nil && @user.tri_2_3 != nil %>
+      <p> [ Second Trimester ] </p>
+
+      <p>1. Are you having an increase pelvic pressure and/or unusual discharge, eg. bleeding?</p>
+        <b><%= @user.tri_2_1 %></b>
+
+      <p>2. Are you having headaches that are not relieved with over-the-counter
+        medications or have visual changes associated with them, persistent vomiting, and upper abdominal pain?
+        <b><%= @user.tri_2_2 %></b>
+      </p>
+
+      <p>3.  Do any of these symptoms apply to you? Vaginal pressure, Low-back pain, Frequent urination, Diarrhea, Increased vaginal discharge, Tightness in the lower abdomen
+        <b><%= @user.tri_2_3 %></b>
+      </p>
+
+      <ul>
+        <p> Comment for Trimester 2 </p>
+        <% @comments.each do |comment| %>
+            <% if comment.trimester_id == 2 %>
+                 <% if comment.doctor_id == nil %>
+                 <li><p> <%= "#{@user.first_name} " + comment.comment %></p></li>
+                     <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+                 <%else%>
+                 <li><p> <%= "#{@doctor.first_name} " + comment.comment %> </p></li>
+                     <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+                 <% end %>
+            <% end %>
+       <% end %>
+      </ul>
       <% end %>
- <% end %>
-</ul>
 
-<p style="color: white;"> [ Second Trimester ] </p>
+      <% if @user.tri_3_1 != nil && @user.tri_3_2 != nil && @user.tri_3_3 != nil %>
+        <p> [ Third Trimester ] </p>
 
-<p style="color: white;">1. Are you having an increase pelvic pressure and/or unusual discharge, eg. bleeding?</p>
-  <b style="color: white;"><%= @user.tri_2_1 %></b>
+        <p>1.Are you having headaches that are not relieved with over-the-counter
+          medications or have visual changes associated with them, persistent vomiting,
+          and upper abdominal pain?</p>
+          <b><%= @user.tri_3_1 %></b>
 
-<p style="color: white;">2. Are you having headaches that are not relieved with over-the-counter
-  medications or have visual changes associated with them, persistent vomiting, and upper abdominal pain?
-  <b style="color: white;"><%= @user.tri_2_2 %></b>
-</p>
+        <p>2. Is there decreased movement from your baby?
+          <b><%= @user.tri_3_2 %></b>
+        </p>
 
-<p style="color: white;">3.  Do any of these symptoms apply to you? Vaginal pressure, Low-back pain, Frequent urination, Diarrhea, Increased vaginal discharge, Tightness in the lower abdomen
-  <b style="color: white;"><%= @user.tri_2_3 %></b>
-</p>
+        <p>3. Do any of these changes apply to you?  Vaginal discharge to a pink or
+         reddish color, menstrual-like cramps, pressure in your pelvis or lower abdomen,
+         and contractions that last for at least an hour that aren’t Braxton Hicks contractions.
+          <b><%= @user.tri_3_3 %></b>
+        </p>
 
-<ul>
-  <p style="color: white;"> Comment for Trimester 2 </p>
-  <% @comments.each do |comment| %>
-      <% if comment.trimester_id == 2 %>
-           <% if comment.doctor_id == nil %>
-           <li><p style="color: white;"> <%= "#{@user.first_name} " + comment.comment %></p></li>
-           <%else%>
-           <li> <p style="color: white;"> <%= "#{@doctor.first_name} " + comment.comment %> </p></li>
-           <% end %>
+      <ul>
+        <p> Comment for Trimester 3 </p>
+        <% @comments.each do |comment| %>
+            <% if comment.trimester_id == 3 %>
+                 <% if comment.doctor_id == nil %>
+                   <li><p> <%= "#{@user.first_name} " + comment.comment %></p></li>
+                       <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+                 <%else%>
+                   <li><p> <%= "#{@doctor.first_name} " + comment.comment %> </p></li>
+                       <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+                 <% end %>
+            <% end %>
+       <% end %>
+      </ul>
       <% end %>
- <% end %>
-</ul>
-
-  <p style="color: white;"> [ Third Trimester ] </p>
-
-  <p style="color: white;">1.Are you having headaches that are not relieved with over-the-counter
-    medications or have visual changes associated with them, persistent vomiting,
-    and upper abdominal pain?</p>
-    <b style="color: white;"><%= @user.tri_3_1 %></b>
-
-  <p style="color: white;">2. Is there decreased movement from your baby?
-    <b style="color: white;"><%= @user.tri_3_2 %></b>
-  </p>
-
-  <p style="color: white;">3. Do any of these changes apply to you?  Vaginal discharge to a pink or
-   reddish color, menstrual-like cramps, pressure in your pelvis or lower abdomen,
-   and contractions that last for at least an hour that aren’t Braxton Hicks contractions.
-    <b style="color: white;"><%= @user.tri_3_3 %></b>
-  </p>
-
-<ul>
-  <p style="color: white;"> Comment for Trimester 3 </p>
-  <% @comments.each do |comment| %>
-      <% if comment.trimester_id == 3 %>
-           <% if comment.doctor_id == nil %>
-             <li><p style="color: white;"> <%= "#{@user.first_name} " + comment.comment %></p></li>
-           <%else%>
-             <li> <p style="color: white;"> <%= "#{@doctor.first_name} " + comment.comment %> </p></li>
-           <% end %>
-      <% end %>
- <% end %>
-</ul>
-
 
 
 <% end %>

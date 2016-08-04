@@ -4,7 +4,7 @@
 
   <div class="profile-wrapper">
     <div class="profile">
-        <h3><%= 'MOMMY' " #{@user.first_name.upcase}"%>'S PROFILE</h3>
+        <h3><%= "MOMMY #{@user.first_name.upcase}" %>'S PROFILE</h3>
           <p>
             <div class="prof1">
               <p>name: </p>
@@ -33,20 +33,16 @@
 
             <%= form_for @user do |f| %>
               <% if current_user.mother == true %>
-              <p><strong>Current Stage of Pregnancy:</strong></p>
-              <p>
-               <%=
-                 f.select(:trimester,
-                 options_for_select(
-                 [['First Trimester', 1],
-                  ['Second Trimester', 2],
-                  ['Third Trimester', 3]],
-                  selected: current_user.trimester))
-               %>
-              <%= f.submit 'Update' %>
-              <% else %>
-                <%= puts 'You cannot change the stage of trimester.' %>
-             </p>
+                  <p><strong>Current Stage of Pregnancy:</strong></p>
+                  <p>
+                   <%=
+                     f.select(:trimester,
+                     options_for_select(
+                     trimesters_for_select,
+                      selected: current_user.trimester))
+                   %>
+                  <%= f.submit 'Update' %>
+                 </p>
               <% end %>
             <% end %>
       </div>
@@ -66,8 +62,10 @@
         <% @my_comments.each do |comment| %>
           <% if comment.doctor_id == nil %>
             <li> <%= "#{@user.first_name} " + comment.comment %></li>
+            <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
             <% else %>
             <li> <%= "#{@doctor.first_name} " + comment.comment %></li>
+            <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
           <% end %>
         <% end %>
       </ul>
