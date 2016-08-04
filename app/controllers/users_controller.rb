@@ -112,25 +112,22 @@ def update
       # end
 
 
-
-
-
   # end
 end
 
-def mom_history
-  @user = User.find(params[:id])
-  @comments = Comment.where(mother_id: params[:id])
-  @doctor = User.find_by(mother: false)     #this work because we only have one doctor.
+  def mom_history
+    @user = User.find(params[:id])
+    @comments = Comment.where(mother_id: params[:id])
+    @doctor = User.find_by(mother: false)     #this work because we only have one doctor.
 
-end
+  end
 
-private
+  private
 
-def user_params
-  params.require(:user).permit(:first_name, :last_name, :email, :password,
-  :password_confirmation, :phone, :address, :dob, :children, :trimester,
-  :tri_1_1, :tri_1_2, :tri_1_3, :tri_2_1, :tri_2_2, :tri_2_3,
-  :tri_3_1, :tri_3_2, :tri_3_3, :doc_qual, :regis_number)
-end
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password,
+    :password_confirmation, :phone, :address, :dob, :children, :trimester,
+    :tri_1_1, :tri_1_2, :tri_1_3, :tri_2_1, :tri_2_2, :tri_2_3,
+    :tri_3_1, :tri_3_2, :tri_3_3, :doc_qual, :regis_number)
+  end
 end

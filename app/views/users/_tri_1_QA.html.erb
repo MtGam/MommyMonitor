@@ -62,7 +62,11 @@
     <% end %>
 
 
-      <p><%= f.submit 'Update1', class: "submit2_button" %></p>
+      <p><%= f.submit 'Update', class: "submit2_button" %></p>
   <% end %>
 
-       <%= render 'comments/comment_form'%>
+  <%= image_tag "comments.png", :width => "550", :height => "400", class: "comment-box" %>
+
+    <div class="comment-form">
+      <%= render 'comments/comment_form' %>
+    </div>

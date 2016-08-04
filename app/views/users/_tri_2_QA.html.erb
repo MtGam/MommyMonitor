@@ -65,10 +65,11 @@
     <% end %>
 
 
+        <p><%= f.submit 'Update' %></p>
+  <% end %>
 
-        <p><%= f.submit 'Update2' %></p>
+  <%= image_tag "comments.png", :width => "550", :height => "400", class: "comment-box" %>
 
-
-<% end %>
-
-    <%= render 'comments/comment_form'%>
+    <div class="comment-form">
+      <%= render 'comments/comment_form' %>
+    </div>

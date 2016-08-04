@@ -1,12 +1,23 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.comment-form {
-  background-color: #fff;
-  color: #pink;
-  opacity: .8;
-  width: 30%;
-  margin: auto;
-  border: 3px solid chocolate;
-  padding: 15px;
+.comment-box {
+  // background-color: yellow;
+  width: 525px;
+  height: 450px;
+}
+
+.comment-box .comment-form {
+  position: relative;
+  top: 0px;
+  width: 500px;
+  height: 400px;
+  opacity: 0;
+  // background-color: #fff;
+  // color: #pink;
+  // opacity: .8;
+  // width: 100%;
+  // margin: auto;
+  // border: 3px solid chocolate;
+  // padding: 15px;
 }

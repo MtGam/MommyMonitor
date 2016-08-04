@@ -1,5 +1,4 @@
 <div class="tri-title"><h3>THIRD TRIMESTER QUESTION</h3></div>
-  <div class="tri">
     <%= form_for @user do |f|%>
       <%
        question_answered = false
@@ -66,11 +65,14 @@
          <%= f.radio_button :tri_3_3, "N/A" %>
       </ul>
     <% end %>
-  </div>
+
 
     <p><%= f.submit 'Reply' %></p>
 
   <% end %>
 
+  <%= image_tag "comments.png", :width => "550", :height => "400", class: "comment-box" %>
 
-    <%= render 'comments/comment_form'%>
+    <div class="comment-form">
+      <%= render 'comments/comment_form' %>
+    </div>

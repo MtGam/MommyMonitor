@@ -60,16 +60,21 @@
           <% end %>
         </div>
 
-
-      <ul>
-        <% @my_comments.each do |comment| %>
-          <% if comment.doctor_id == nil %>
-            <li> <%= "[#{@user.first_name}] " + comment.comment %></li>
-            <% else %>
-            <li> <%= "#{@doctor.first_name} " + comment.comment %></li>
+      <div class="tri-question">
+        <ul>
+          <% @my_comments.each do |comment| %>
+            <% if comment.doctor_id == nil %>
+            <div class="mom-cmnt">
+              <li><p><%= "#{@user.first_name}: " + " " + comment.comment %></p></li>
+            </div>
+            <%else%>
+            <div class="doc-cmnt">
+              <li><p><%= "#{@doctor.first_name}: " + " " + comment.comment %> </p></li>
+            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </ul>
+        </ul>
+      </div>
 
    <%= link_to "My History", user_mom_history_path  %>
 

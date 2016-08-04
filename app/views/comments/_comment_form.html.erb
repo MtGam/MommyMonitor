@@ -2,7 +2,7 @@
 
 
 <%= form_for [@user, @comment] do |f| %>
-  <%= f.text_area :comment, size: '45x5', placeholder: 'Please write your comments here!' %>
+  <%= f.text_area :comment, size: '30x8', placeholder: 'Please write your comments here!' %>
     <spellcheck="true">
     <%= f.hidden_field :mother_id, :value => @mother_id %>
   <%= f.submit %></p>
