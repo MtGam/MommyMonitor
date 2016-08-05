@@ -1,4 +1,5 @@
-<div class="tri-title"><h3>FIRST TRIMESTER QUESTION</h3></div>
+<h3>FIRST TRIMESTER QUESTION</h3>
+
   <% if current_user.mother == true %>
 
     <%= form_for @user do |f|%>
@@ -91,6 +92,6 @@
       <% end %>
 
 
-      <% if current_user.tri_2_1 == nil && current_user.tri_2_2 == nil && current_user.tri_2_3 == nil %> <!--once mother answer questions on 2nd trimester, they cannot create comment on 1st trimester.-->
+      <% if current_user.tri__1 == nil && current_user.tri_2_2 == nil && current_user.tri_2_3 == nil %> <!--once mother answer questions on 2nd trimester, they cannot create comment on 1st trimester.-->
          <%= render 'comments/comment_form'%>
       <% end %>

@@ -4,6 +4,13 @@
 
   <div class="profile-wrapper">
     <div class="profile">
+
+      <div class="notice">
+        <% if notice != nil %>
+          <p style="color: red; font-weight: bold;"><%= notice %></p>
+        <% end %>
+      </div>
+
         <h3 class="page-title"><%= "Mommy #{@user.first_name}" %> Profile</h3>
 
         <%= link_to "My History", user_mom_history_path, class: "mom-btn" %>
