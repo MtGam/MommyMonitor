@@ -13,6 +13,10 @@
   margin: 0 auto;
 }
 
+.page-title {
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
+
 .profile {
     // overflow: hidden;
     background-color: #fff3f4;
@@ -78,14 +82,53 @@
 
 .comment1 {
   background-color: none;
+  padding: 2px;
 }
 
 .mom-cmnt {
+  position: inherit;
+  opacity: 0.9;
   background-color: bisque;
+  color: #8b4141; //#c68686;
+  text-align: left;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 3px;
+  border: 1px solid lightgrey;
+  width: 100%;
+}
+
+.mom {
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-stretch: semi-expanded;
+  font-size: 20px;
+}
+
+.doc {
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-stretch: semi-expanded;
+  font-size: 20px;
+}
+
+.comnt {
+  font-style: italic;
+}
+
+.time {
+  font-size: 12px;
 }
 
 .doc-cmnt {
+  position: inherit;
+  opacity: 0.9;
   background-color: white;
+  color: #008686;
+  text-align: left;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid lightgrey;
+  width: 100%;
 }
 
 .doc-profile {
@@ -103,10 +146,16 @@
     padding: 25px;
 }
 
+.doc-img {
+  margin: 10px auto;
+  padding: 3px;
+}
+
 .doc-list {
     text-align: left;
     font-family: "Avenir-next", helvetica, arial, sans-serif;
     color: #734d26;
+    padding: 25px;
 }
 
 input[type="submit"] {
@@ -143,8 +192,4 @@ input[type="submit"]:hover {
 .mom-btn:hover {
   background: #8EDBE6;
   text-decoration: none;
-}
-
-.page-title {
-  font-family: 'Alegreya Sans SC', sans-serif;
 }

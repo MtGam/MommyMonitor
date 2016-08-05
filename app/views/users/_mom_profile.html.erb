@@ -4,7 +4,7 @@
 
   <div class="profile-wrapper">
     <div class="profile">
-        <h3><%= "MOMMY #{@user.first_name.upcase}" %>'S PROFILE</h3>
+        <h3 class="page-title"><%= "Mommy #{@user.first_name}" %> Profile</h3>
 
         <%= link_to "My History", user_mom_history_path, class: "mom-btn" %>
 
@@ -37,7 +37,7 @@
             <%= form_for @user do |f| %>
               <% if current_user.mother == true %>
 
-                  <p><strong>Current Stage of Pregnancy:</strong></p>
+                  <p class="page-title"><strong>Current Stage of Pregnancy:</strong></p>
                   <p>
                    <%=
                      f.select(:trimester,
@@ -62,21 +62,25 @@
         </div>
 
       <div class="tri-question">
-        <ul>
           <% @my_comments.each do |comment| %>
             <% if comment.doctor_id == nil %>
             <div class="mom-cmnt">
-              <li><p><%= "#{@user.first_name}: " + " " + comment.comment %></p></li>
-              <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+              <ul>
+                <p class="mom"><%= "#{@user.first_name}:" %></p>
+                <p class="comnt"><%= comment.comment %></p>
+                <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+              </ul>
             </div>
             <%else%>
             <div class="doc-cmnt">
-              <li><p><%= "#{@doctor.first_name}: " + " " + comment.comment %> </p></li>
-              <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+              <ul>
+                <p class="doc"><%= "#{@doctor.first_name}:" %></p>
+                <p class="comnt"><%= comment.comment %></p>
+                <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+              </ul>
             </div>
             <% end %>
           <% end %>
-        </ul>
       </div>
 
     </div>
