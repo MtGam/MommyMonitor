@@ -12,7 +12,6 @@ class User < ApplicationRecord
   scope :mothers, -> { where(mother: true) }
   has_secure_password
   has_many :comments
-  # accepts_nested_attributes_for: :comment
 
   def remaining_trimesters
      case trimester
@@ -22,6 +21,6 @@ class User < ApplicationRecord
        [2, 3]
      else
        [1, 2, 3]
-     end 
+     end
   end
 end

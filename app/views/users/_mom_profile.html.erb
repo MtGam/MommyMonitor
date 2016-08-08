@@ -13,7 +13,11 @@
 
         <h3 class="page-title"><%= "Mommy #{@user.first_name}" %> Profile</h3>
 
+        <% if current_user.mother == true %>
         <%= link_to "My History", user_mom_history_path, class: "mom-btn" %>
+        <% else %>
+        <%= link_to "#{@user.first_name}'s History", user_mom_history_path, class: "mom-btn" %>
+        <% end %>
 
           <p>
             <div class="prof1">

@@ -3,13 +3,14 @@
 <div class="profile-wrapper animated fadeIn">
   <div class="profile">
     <h2 class="page-title"><%= "#{@user.first_name} #{@user.last_name} History " %></h2>
+    <%= link_to "Go back to #{@user.first_name}'s Profile", user_path(@user.id), class: "mom-btn" %>
 
     <% if @user.mother == true %>
       <% if @user.tri_1_1 != nil && @user.tri_1_2 != nil && @user.tri_1_3 != nil %>
       <div class="stage1">
         <div class="tri-title">
             <%= image_tag "blue-heart.png", :width => "55", :height => "70" %>
-          <!-- <#% render 'mom_profile'%> -->
+
             <h3 class="page-title">First Trimester</h3>
         </div>
 
@@ -176,7 +177,6 @@
             </ul>
           </div>
 
-          <!-- <#% end %> -->
       </div>
       <% end %>
     <% end %>
