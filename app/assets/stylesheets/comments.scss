@@ -9,22 +9,25 @@ textarea#comment_comment {
     border: 2px solid lightgrey;
     margin: 10px auto;
     padding: 15px;
-
 }
 
-// .new_comment{
-//   border-radius: 5px;
-//   // margin: 50px 80px auto;
-// }
+.mini-mom {
+  background-color: #fff;
+  border: 1px solid pink;
+  border-radius: 5px;
+  float: left;
+  width: 11%;
+  height: 100%;
+  margin: 9px;
+  padding: 3px;
+}
 
-
-// @media screen and (max-width: 1080px) {
-//   .comment-box{
-//     width: 100%;
-//
-//   }
-//
-//   .comment-form {
-//     width: 100%;
-//   }
-// }
+.mini-doc {
+  border-radius: 5px;
+  border: 1px solid red;
+  float: left;
+  width: 11%;
+  height: 100%;
+  margin: 9px;
+  padding: 3px;
+}

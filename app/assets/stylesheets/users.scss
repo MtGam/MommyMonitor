@@ -19,10 +19,10 @@
 }
 
 .profile {
-    // overflow: hidden;
+    overflow: hidden;
     background-color: #fff3f4;
     color: #734d26;
-    opacity: 0.8;
+    opacity: 0.9;
     font-family: "Avenir-next", helvetica, arial, sans-serif;
     text-align: center;
     font-size: 16px;
@@ -88,16 +88,22 @@
 }
 
 .mom-cmnt {
-  position: inherit;
+  overflow: hidden;
   opacity: 0.9;
   background-color: bisque;
-  color: #8b4141; //#c68686;
+  color: #8b4141;
   text-align: left;
   border-radius: 5px;
   margin: 5px;
-  padding: 3px;
+  padding: 5px;
   border: 1px solid lightgrey;
   width: 100%;
+}
+
+.mom-cmnt2 {
+  // float: right;
+  margin: none;
+  width: 85%;
 }
 
 .mom {
@@ -112,6 +118,12 @@
   font-size: 20px;
 }
 
+.doc-cmnt2 {
+  // float: right;
+  margin: none;
+  width: 85%;
+}
+
 .comnt {
   font-style: italic;
 }
@@ -121,7 +133,7 @@
 }
 
 .doc-cmnt {
-  position: inherit;
+  overflow: hidden;
   opacity: 0.9;
   background-color: white;
   color: #008686;
@@ -135,6 +147,7 @@
 
 .doc-profile {
     overflow: scroll;
+    position: relative;
     background-color: #fff3f4;
     font-family: "Avenir-next", helvetica, arial, sans-serif;
     color: #734d26;

@@ -1,8 +1,8 @@
 <%= image_tag "logo3.png", :width => "204", :height => "106", class: "mommylogo" %>
 
-<div class="profile-wrapper">
+<div class="profile-wrapper animated fadeIn">
   <div class="profile">
-    <%= image_tag "pregnancy-with-hearts(1)copy.png", :width => "90", :height => "70" %>
+    <%= image_tag "pregnancy-with-hearts(1)copy.png", :width => "80", :height => "70" %>
     <h2 class="page-title"><%= "#{@user.first_name} #{@user.last_name} History " %></h2>
 
     <% if @user.mother == true %>
@@ -37,19 +37,21 @@
                     <% if comment.trimester_id == 1 %>
                        <% if comment.doctor_id == nil %>
                       <div class="mom-cmnt">
-                        <ul>
-                          <p class="mom"><%= "#{@user.first_name}:" %></p>
-                          <p class="comnt"><%= comment.comment %></p>
-                          <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
-                        </ul>
+                        <%= image_tag "pregnancy-with-hearts(1)copy.png", :width => "50", :height => "70", class: "mini-mom" %>
+                          <div class="mom-cmnt2">
+                              <p class="mom"><%= "#{@user.first_name}:" %></p>
+                              <p class="comnt"><%= comment.comment %></p>
+                              <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+                          </div>
                       </div>
                       <%else%>
                       <div class="doc-cmnt">
-                        <ul>
-                          <p class="doc"><%= "#{@user.first_name}:" %></p>
-                          <p class="comnt"><%= comment.comment %></p>
-                          <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
-                        </ul>
+                        <%= image_tag "steth-icon.png", :width => "50", :height => "70", class: "mini-doc" %>
+                         <div class="doc-comnt2">
+                            <p class="doc"><%= "#{@doctor.first_name}:" %></p>
+                            <p class="comnt"><%= comment.comment %></p>
+                            <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+                         </div>
                       </div>
 
                       <% end %>
@@ -93,19 +95,21 @@
                   <% if comment.trimester_id == 2 %>
                      <% if comment.doctor_id == nil %>
                      <div class="mom-cmnt">
-                       <ul>
-                         <p class="mom"><%= "#{@user.first_name}:" %></p>
-                         <p class="comnt"><%= comment.comment %></p>
-                         <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
-                       </ul>
+                       <%= image_tag "pregnancy-with-hearts(1)copy.png", :width => "50", :height => "70", class: "mini-mom" %>
+                         <div class="mom-cmnt2">
+                             <p class="mom"><%= "#{@user.first_name}:" %></p>
+                             <p class="comnt"><%= comment.comment %></p>
+                             <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+                         </div>
                      </div>
                        <%else%>
                      <div class="doc-cmnt">
-                       <ul>
-                         <p class="doc"><%= "#{@doctor.first_name}:" %></p>
-                         <p class="comnt"><%= comment.comment %></p>
-                         <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
-                       </ul>
+                       <%= image_tag "steth-icon.png", :width => "50", :height => "70", class: "mini-doc" %>
+                        <div class="doc-comnt2">
+                           <p class="doc"><%= "#{@doctor.first_name}:" %></p>
+                           <p class="comnt"><%= comment.comment %></p>
+                           <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+                        </div>
                      </div>
                      <% end %>
                   <% end %>
@@ -151,18 +155,21 @@
                 <% if comment.trimester_id == 3 %>
                    <% if comment.doctor_id == nil %>
                    <div class="mom-cmnt">
-                     <ul>
-                       <p class="mom"><%= "#{@user.first_name}:" %></p>
-                       <p class="comnt"><%= comment.comment %></p>
-                       <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
-                     </ul>                   </div>
+                       <%= image_tag "pregnancy-with-hearts(1)copy.png", :width => "50", :height => "70", class: "mini-mom" %>
+                         <div class="mom-cmnt2">
+                             <p class="mom"><%= "#{@user.first_name}:" %></p>
+                             <p class="comnt"><%= comment.comment %></p>
+                             <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+                         </div>
+                   </div>
                      <%else%>
                    <div class="doc-cmnt">
-                     <ul>
-                       <p class="doc"><%= "#{@doctor.first_name}:" %></p>
-                       <p class="comnt"><%= comment.comment %></p>
-                       <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
-                     </ul>
+                     <%= image_tag "steth-icon.png", :width => "50", :height => "70", class: "mini-doc" %>
+                      <div class="doc-comnt2">
+                         <p class="doc"><%= "#{@doctor.first_name}:" %></p>
+                         <p class="comnt"><%= comment.comment %></p>
+                         <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+                      </div>
                    </div>
                    <% end %>
                 <% end %>

@@ -1,6 +1,6 @@
 <%= image_tag "logo3.png", :width => "204", :height => "106", class: "mommylogo"%>
 
-  <div class="profile-wrapper">
+  <div class="profile-wrapper animated fadeIn">
     <div class="doc-profile">
 
       <div class="notice">
@@ -34,7 +34,6 @@
           <div class="doc-list">
             <% if current_user == @doctor %>
               <% @mothers.each do |mother|%>
-              <!-- <%= link_to [mother.first_name, mother.last_name], mother %> -->
               <li><%= link_to "#{mother.first_name} #{mother.last_name}", mother %></li>
               <% end %>
             <%end%>
