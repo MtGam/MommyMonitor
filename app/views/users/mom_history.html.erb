@@ -3,7 +3,12 @@
 <div class="profile-wrapper animated fadeIn">
   <div class="profile">
     <h2 class="page-title"><%= "#{@user.first_name} #{@user.last_name} History " %></h2>
+
+    <% if current_user.mother == false %>
     <%= link_to "Go back to #{@user.first_name}'s Profile", user_path(@user.id), class: "mom-btn" %>
+    <% else %>
+    <%= link_to "Go back to My Profile", user_path(@user.id), class: "mom-btn" %>
+    <% end %>
 
     <% if @user.mother == true %>
       <% if @user.tri_1_1 != nil && @user.tri_1_2 != nil && @user.tri_1_3 != nil %>
