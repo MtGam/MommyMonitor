@@ -158,7 +158,7 @@
     margin: 10px auto;
     border: 3px solid #A2DFE8;
     border-radius: 7px;
-    padding: 25px;
+    padding: 35px;
 }
 
 .doc-img {
@@ -205,6 +205,25 @@ input[type="submit"]:hover {
 }
 
 .mom-btn:hover {
+  background: #8EDBE6;
+  text-decoration: none;
+}
+
+.doc-btn {
+  -webkit-border-radius: 7 !important;
+  -moz-border-radius: 7 !important;
+  border-radius: 7px !important;
+  border: 1px solid lightgrey;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  background: #A2DFE8;
+  padding: 3px 15px;
+  text-decoration: none;
+  width: 100%;
+}
+
+.doc-btn:hover {
   background: #8EDBE6;
   text-decoration: none;
 }

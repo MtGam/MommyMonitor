@@ -1,9 +1,6 @@
 
 class UsersController < ApplicationController
 
-# before_action :set_user, only: [:show, :edit, :update, :destroy]
-# skip_before_action :authorize, only: [:new, :create, :index]
-
  def index
    @users = User.all
    @comment = Comment.new
@@ -43,7 +40,6 @@ def edit
 end
 
 def update
-  # logger.debug "PARAMS: #{params}"
   @user = User.find(params[:id])
 
    # For doctor
@@ -79,7 +75,6 @@ def update
             params[:user]['tri_2_2'] == nil || params[:user]['tri_2_3'] == nil)) ||
             (@user.trimester == 3 && (params[:user]['tri_3_1'] == nil ||
             params[:user]['tri_3_2'] == nil || params[:user]['tri_3_3'] == nil))
-          # logger.debug "****USER:" + @user
           redirect_to user_url(@user), notice: "Error: Please answer all of the questions."
           return
       else
