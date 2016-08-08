@@ -30,11 +30,11 @@
           <p><%= " #{@user.doc_qual}" %></p>
         </div>
 
-
-        <h3 class="page-title">List of Patients:</h3>
-        <%= link_to "Send Text To Patient", messages_new_path, class: "doc-btn" %>
-
           <div class="doc-list">
+            <div class="page-title">
+              <p><%= link_to "Send Text To Patient", messages_new_path, class: "doc-btn" %></p>
+              <h3 class="page-title">List of Patients:</h3>
+            </div>
             <% if current_user == @doctor %>
               <% @mothers.each do |mother|%>
               <li><%= link_to "#{mother.first_name} #{mother.last_name}", mother %></li>
