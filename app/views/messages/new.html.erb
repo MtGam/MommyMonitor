@@ -1,50 +1,42 @@
+<div class="container">
+  <div class="field2">
+    <div class="field-input2">
+      <%= image_tag "icon_sms1.png", :width => "200", :height => "220", class: "sms-img" %>
 
- <%= form_for(@message) do |f| %>
+      <%= form_for(@message) do |f| %>
 
-   <% if @message.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <% if @message.errors.any? %>
+          <h2><%= pluralize(@message.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% @message.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+            <ul>
+            <% @message.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+        <% end %>
+
+        <p>
+          <%= f.label :To %>
+          <%= f.text_field :To, placeholder: "Jane Doe"  %>
+        </p>
+
+        <p>
+          <%= f.label :"Phone Number" %>
+          <%= f.telephone_field :To, placeholder: "0123456789" %>
+        </p>
+
+
+          <!-- <p><h4>From: Mommy Monitor</h4></p> -->
+          <!-- <%#= f.label :"From: Mommy Monitor" %> -->
+        <p>
+            <%= "From Mommy Monitor" %>
+            <%= f.text_area :Body, size: '28x8', placeholder: 'Please write your message here!' %>
+            <spellcheck="true">
+
+          <%= f.submit %>
+        </p>
+
       <% end %>
-      </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :To %><br>
-    <%= f.text_field :To, placeholder: "Jane Doe"  %>
   </div>
-  <br>
-  <div class="field">
-    <%= f.label :"Phone Number"  %><br>
-    <%= f.telephone_field :To, placeholder: "0123456789"  %>
-  </div>
-  <br>
-  <div class="field">
-    <%= f.label :"From: Mommy Monitor" %><br>
-    <!-- <%= f.text_field :From %> -->
-  </div>
-  <br>
-  <div class="field">
-    <%= f.label :Message %><br>
-    <%= f.text_area :Body, size: '40x8', placeholder: 'Please write your message here!' %>
-    <spellcheck="true">
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-
-
-<!-- <h1>TWILIO!!!</h1>
-
-   <%= form_tag('message', method: 'GET') do %>
-   <input type="text" placeholder="enter number" name="number">
-   <input type="text" placeholder="enter message here" name="message">
-   <button type="submit">Submit</button>
-   <% end %> -->
+</div>
