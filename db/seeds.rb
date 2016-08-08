@@ -10,48 +10,35 @@
 User.create({first_name: 'Chau',
              last_name: 'Nguyen',
              email: 'chau@yahoo.com',
-             phone: '123456',
-             address: '123456',
+             phone: '647-232-0000',
+             address: '220 King Street West, Toronto',
              password:'1234567',
              password_confirmation:'1234567',
              children: '1',
-             trimester: '2',
-             dob: '2000-01-01',
+             trimester: '1',
+             dob: '1980-01-01',
              mother: true})
 
 
 User.create({first_name: 'Smita',
             last_name: 'Ingleshwar',
             email: 'smita@yahoo.com',
-            phone: '123456',
-            address: '123456',
+            phone: '647-1122-2233',
+            address: '220 Queen Street West, Toronto',
             password:'1234567',
             password_confirmation:'1234567',
             children: '1',
-            trimester: '2',
-            dob: '2000-01-01',
+            trimester: '1',
+            dob: '1988-01-01',
             mother: true})
 
 User.create({first_name: 'Henry',
             last_name: 'Smith',
             email: 'henry@yahoo.com',
-            phone: '123-456-67890',
-            address: '123 Some Street, Toronto, ON',
+            phone: '647-456-6789',
+            address: '123 Simcoe, Toronto, ON',
             password:'1234567',
             password_confirmation:'1234567',
             doc_qual: 'M.D., Obstetrics and Gynecology, 1997',
-            regis_number: '9999999999',
+            regis_number: '9999-9999-99',
             mother: false})
-
-Comment.create({comment: 'I need help!',
-               mother_id: 1,
-               commenter_id: 1,
-               trimester_id: 1})
-
-Comment.create({comment: 'this is Smita! I need help!',
-              mother_id: 2,
-              commenter_id: 2,
-              trimester_id: 1})
-
-
-Comment.create({comment: 'How can I help you ?', doctor_id: 3, commenter_id: 3, mother_id: 1})
