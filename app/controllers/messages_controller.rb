@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
        from_number = params[:From]
        boot_twilio
        sms = @client.messages.create(
-         from: Rails.application.secrets.twilio_number,
+         from: ENV['twilio_number'],
          to_number: params['message']['To'],
          body: "Hello World"
        )
@@ -34,11 +34,11 @@ class MessagesController < ApplicationController
 
          boot_twilio
          sms = @client.messages.create(
-           from: Rails.application.secrets.twilio_number,
+           from: ENV['twilio_number'],
            to: '+1' + @message.To,
            body: "#{@message.Body}."
          )
-     # Rails.application.secrets.twilio_number
+     # ENV['twilio_number']
 
         if @message.save
           redirect_to messages_new_path, :flash => { :success => "Message Sent" }
@@ -48,9 +48,9 @@ class MessagesController < ApplicationController
 
       end
 
-  # Rails.application.secrets.twilio_number
+  # ENV['twilio_number']
   # @message = @client.account.messages.create({:To => "+1"+"#{:To}",
-  #  :from => Rails.application.secrets.twilio_number,
+  #  :from => ENV['twilio_number'],
   #  :body => "#{messages_url}"})
 
 
@@ -58,8 +58,8 @@ class MessagesController < ApplicationController
      private
 
      def boot_twilio
-       account_sid = Rails.application.secrets.twilio_account_sid
-       auth_token = Rails.application.secrets.twilio_token
+       account_sid = ENV['twilio_account_sid']
+       auth_token = ENV['twilio_token']
        logger
        @client = Twilio::REST::Client.new account_sid, auth_token
      end

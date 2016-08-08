@@ -155,7 +155,6 @@
 
         <h4 class="page-title">Comments:</h4>
           <div class="comment1">
-            <ul>
               <% @comments.each do |comment| %>
                 <% if comment.trimester_id == 3 %>
                    <% if comment.doctor_id == nil %>
@@ -179,7 +178,6 @@
                    <% end %>
                 <% end %>
               <% end %>
-            </ul>
           </div>
 
       </div>
