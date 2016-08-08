@@ -22,6 +22,22 @@ Rails.application.routes.draw do
  get '/users/mom_history/:id',  to: "users#mom_history", as: "user_mom_history"
 
 
+ # get 'messages/reply'
+
+ root 'messages#new'
+
+
+ get 'messages/new'
+
+ post 'messages/send'
+
+ resource :messages do
+   collection do
+
+     post 'reply'
+
+   end
+ end
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
