@@ -1,23 +1,15 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.comment-box {
-  // z-index: -1;
-  // position: absolute;
-  // margin: auto;
-  // padding: 10px;
-}
+textarea#comment_comment {
+    -webkit-box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.75);
+    border-radius: 5px;
+    border: 2px solid lightgrey;
+    margin: 10px auto;
+    padding: 15px;
 
-
-.comment-form {
-  -webkit-box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.75);
-  box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.75);
-  background-color: #fff;
-  border: 2px solid lightgrey;
-  border-radius: 5px;
-  // z-index: 10;
-  // margin-top: 40px;
 }
 
 // .new_comment{

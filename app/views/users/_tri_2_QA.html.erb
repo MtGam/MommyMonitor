@@ -1,4 +1,5 @@
-<div class="tri-title"><h3>SECOND TRIMESTER QUESTION</h3></div>
+<h3 class="page-title">Second Trimester Question</h3>
+
   <% if current_user.mother == true %>
 
     <%= form_for @user do |f|%>
@@ -11,10 +12,11 @@
           end
       %>
 
-      <p>1. Are you having an increase pelvic pressure and/or unusual discharge, eg. bleeding?
-        <% if question_answered == true %>
-          <b><%= current_user.tri_2_1 %></b>
-        <% end %>
+      <p>
+        1. Are you having an increase pelvic pressure and/or unusual discharge, eg. bleeding?
+          <% if question_answered == true %>
+            <b><%= current_user.tri_2_1 %></b>
+          <% end %>
       </p>
 
       <% if question_answered == false %>
@@ -29,11 +31,12 @@
       <% end %>
 
 
-      <p>2. Are you having headaches that are not relieved with over-the-counter
+      <p>
+        2. Are you having headaches that are not relieved with over-the-counter
         medications or have visual changes associated with them, persistent vomiting, and upper abdominal pain?
-        <% if question_answered == true %>
-          <b><%= current_user.tri_2_2 %></b>
-        <% end %>
+          <% if question_answered == true %>
+            <b><%= current_user.tri_2_2 %></b>
+          <% end %>
       </p>
 
       <% if question_answered == false %>
@@ -48,10 +51,11 @@
       <% end %>
 
 
-      <p>3.  Do any of these symptoms apply to you? Vaginal pressure, Low-back pain, Frequent urination, Diarrhea, Increased vaginal discharge, Tightness in the lower abdomen
-        <% if question_answered == true %>
-          <b><%= current_user.tri_2_3 %></b>
-        <% end %>
+      <p>
+        3.  Do any of these symptoms apply to you? Vaginal pressure, Low-back pain, Frequent urination, Diarrhea, Increased vaginal discharge, Tightness in the lower abdomen
+          <% if question_answered == true %>
+            <b><%= current_user.tri_2_3 %></b>
+          <% end %>
       </p>
 
       <% if question_answered == false %>
@@ -74,6 +78,7 @@
         1. Are you having an increase pelvic pressure and/or unusual discharge, eg. bleeding?
          <ul><li><%= @user.tri_2_1 %></li></ul>
       </p>
+
       <p>
         2. Are you having headaches that are not relieved with over-the-counter
           medications or have visual changes associated with them, persistent vomiting, and upper abdominal pain?

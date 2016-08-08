@@ -80,7 +80,7 @@ def update
             (@user.trimester == 3 && (params[:user]['tri_3_1'] == nil ||
             params[:user]['tri_3_2'] == nil || params[:user]['tri_3_3'] == nil))
           # logger.debug "****USER:" + @user
-          redirect_to user_url(@user), notice: "Error: Please answer all questions."
+          redirect_to user_url(@user), notice: "Error: Please answer all of the questions."
           return
       else
           @user.update(user_params)
@@ -89,7 +89,7 @@ def update
           return
       end
   else
-    redirect_to user_url(@user), notice: "Error: Please answer all questions."
+    redirect_to user_url(@user), notice: "Error Updating."
     return
   end
 

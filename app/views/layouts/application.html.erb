@@ -3,7 +3,9 @@
   <head>
 
     <title>MommyMonitor</title>
-    <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Alegreya+Sans+SC' %> 
+    <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Alegreya+Sans+SC' %>
+    <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Passion+One' %>
+    <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Oxygen70' %>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -14,13 +16,13 @@
 
 
   <body>
-    <div class="super-wrap">
+    <!-- <div class="super-wrap"> -->
 
       <%= render 'shared/navbar' %>
 
       <%= yield %>
 
-    </div>
+    <!-- </div> -->
 
   </body>
 

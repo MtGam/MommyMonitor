@@ -2,17 +2,17 @@
 
 <div class="profile-wrapper">
   <div class="profile">
-    <h2 class="page-title"><%= "#{@user.first_name} #{@user.last_name}'s History " %></h2>
-    <br/>
+    <%= image_tag "pregnancy-with-hearts(1)copy.png", :width => "90", :height => "70" %>
+    <h2 class="page-title"><%= "#{@user.first_name} #{@user.last_name} History " %></h2>
 
     <% if @user.mother == true %>
-
+      <% if @user.tri_1_1 != nil && @user.tri_1_2 != nil && @user.tri_1_3 != nil %>
       <div class="stage1">
         <div class="tri-title">
-            <%= image_tag "blue-heart.png", :width => "50", :height => "65" %>
+            <%= image_tag "blue-heart.png", :width => "55", :height => "70" %>
           <!-- <#% render 'mom_profile'%> -->
             <h3 class="page-title">First Trimester</h3>
-          </div>
+        </div>
 
             <p>
               1. Are you having any cramps or pain?
@@ -31,32 +31,42 @@
 
           <br/>
 
-            <h5>COMMENTS:</h5>
+            <h4 class="page-title">Comments:</h4>
               <div class="comment1">
-                <ul>
                   <% @comments.each do |comment| %>
                     <% if comment.trimester_id == 1 %>
                        <% if comment.doctor_id == nil %>
                       <div class="mom-cmnt">
-                        <li><p><%= "#{@user.first_name}: " + " " + comment.comment %></p></li>
+                        <ul>
+                          <p class="mom"><%= "#{@user.first_name}:" %></p>
+                          <p class="comnt"><%= comment.comment %></p>
+                          <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+                        </ul>
                       </div>
                       <%else%>
                       <div class="doc-cmnt">
-                        <li><p><%= "#{@doctor.first_name}: " + " " + comment.comment %> </p></li>
+                        <ul>
+                          <p class="doc"><%= "#{@user.first_name}:" %></p>
+                          <p class="comnt"><%= comment.comment %></p>
+                          <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+                        </ul>
                       </div>
-                       <% end %>
+
+                      <% end %>
                     <% end %>
                   <% end %>
-                </ul>
-            </div>
+              </div>
       </div>
+    <% end %>
 
-    <br/>
+      <br/>
 
+      <% if @user.tri_2_1 != nil && @user.tri_2_2 != nil && @user.tri_2_3 != nil %>
       <div class="stage2">
+
         <div class="tri-title">
-          <%= image_tag "blue-heart.png", :width => "50", :height => "65" %>
-          <h4>SECOND TRIMESTER</h4>
+          <%= image_tag "blue-heart.png", :width => "55", :height => "70" %>
+          <h3 class="page-title">Second Trimester</h3>
         </div>
 
           <p>
@@ -75,32 +85,42 @@
             <ul><li><%= @user.tri_2_3 %></li></ul>
           </p>
 
-          <br/>
+          <br>
 
-          <h5>COMMENTS:</h5>
-            <ul>
-              <% @comments.each do |comment| %>
-                <% if comment.trimester_id == 2 %>
-                   <% if comment.doctor_id == nil %>
-                   <div class="mom-cmnt">
-                     <li><p><%= "#{@user.first_name}: " + " " + comment.comment %></p></li>
-                   </div>
-                     <%else%>
-                   <div class="doc-cmnt">
-                     <li><p><%= "#{@doctor.first_name}: " + " " + comment.comment %> </p></li>
-                   </div>
-                   <% end %>
+          <h4 class="page-title">Comments:</h4>
+            <div class="comment1">
+                <% @comments.each do |comment| %>
+                  <% if comment.trimester_id == 2 %>
+                     <% if comment.doctor_id == nil %>
+                     <div class="mom-cmnt">
+                       <ul>
+                         <p class="mom"><%= "#{@user.first_name}:" %></p>
+                         <p class="comnt"><%= comment.comment %></p>
+                         <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+                       </ul>
+                     </div>
+                       <%else%>
+                     <div class="doc-cmnt">
+                       <ul>
+                         <p class="doc"><%= "#{@doctor.first_name}:" %></p>
+                         <p class="comnt"><%= comment.comment %></p>
+                         <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+                       </ul>
+                     </div>
+                     <% end %>
+                  <% end %>
                 <% end %>
-              <% end %>
-            </ul>
+            </div>
       </div>
+    <% end %>
 
-    <br/>
+      <br/>
 
+      <% if @user.tri_3_1 != nil && @user.tri_3_2 != nil && @user.tri_3_3 != nil %>
       <div class="stage3">
         <div class="tri-title">
-          <%= image_tag "blue-heart.png", :width => "50", :height => "65" %>
-          <h4>THIRD TRIMESTER</h4>
+          <%= image_tag "blue-heart.png", :width => "55", :height => "70" %>
+          <h3 class="page-title">Third Trimester</h3>
         </div>
 
         <p>
@@ -124,126 +144,35 @@
 
       <br/>
 
-        <h5>COMMENTS:</h5>
-          <ul>
-            <% @comments.each do |comment| %>
-              <% if comment.trimester_id == 3 %>
-                 <% if comment.doctor_id == nil %>
-                 <div class="mom-cmnt">
-                   <li><p><%= "#{@user.first_name}: " + " " + comment.comment %></p></li>
-                 </div>
-                   <%else%>
-                 <div class="doc-cmnt">
-                   <li><p><%= "#{@doctor.first_name}: " + " " + comment.comment %> </p></li>
-                 </div>
-                 <% end %>
+        <h4 class="page-title">Comments:</h4>
+          <div class="comment1">
+            <ul>
+              <% @comments.each do |comment| %>
+                <% if comment.trimester_id == 3 %>
+                   <% if comment.doctor_id == nil %>
+                   <div class="mom-cmnt">
+                     <ul>
+                       <p class="mom"><%= "#{@user.first_name}:" %></p>
+                       <p class="comnt"><%= comment.comment %></p>
+                       <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+                     </ul>                   </div>
+                     <%else%>
+                   <div class="doc-cmnt">
+                     <ul>
+                       <p class="doc"><%= "#{@doctor.first_name}:" %></p>
+                       <p class="comnt"><%= comment.comment %></p>
+                       <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
+                     </ul>
+                   </div>
+                   <% end %>
+                <% end %>
               <% end %>
-            <% end %>
-          </ul>
-      </div>
+            </ul>
+          </div>
 
+          <!-- <#% end %> -->
+      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
-
-<h1><%= "#{@user.first_name}'s History " %></h1>
-
- <% if @user.mother == true %>
-
-    <% if @user.tri_1_1 != nil && @user.tri_1_2 != nil && @user.tri_1_3 != nil %>
-        <p> [ First Trimester ] </p>
-
-        <p>1. Are you having any cramps or pain?</p>
-          <b><%= @user.tri_1_1 %></b>
-
-        <p>2. Do you feel feverish with a very high body temperature?
-          <b><%= @user.tri_1_2 %></b>
-        </p>
-
-        <p>3. Are you having excessive nausea and vomitting?
-          <b><%= @user.tri_1_3 %></b>
-        </p>
-
-      <ul>
-      <p> Comment for Trimester 1 </p>
-        <% @comments.each do |comment| %>
-            <% if comment.trimester_id == 1 %>
-                 <% if comment.doctor_id == nil %>
-                 <li><p> <%= "#{@user.first_name} " + comment.comment %></p></li>
-                     <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
-                 <%else%>
-                 <li><p> <%= "#{@doctor.first_name} " + comment.comment %> </p></li>
-                     <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
-                 <% end %>
-            <% end %>
-       <% end %>
-      </ul>
-    <% end %>
-
-    <% if @user.tri_2_1 != nil && @user.tri_2_2 != nil && @user.tri_2_3 != nil %>
-      <p> [ Second Trimester ] </p>
-
-      <p>1. Are you having an increase pelvic pressure and/or unusual discharge, eg. bleeding?</p>
-        <b><%= @user.tri_2_1 %></b>
-
-      <p>2. Are you having headaches that are not relieved with over-the-counter
-        medications or have visual changes associated with them, persistent vomiting, and upper abdominal pain?
-        <b><%= @user.tri_2_2 %></b>
-      </p>
-
-      <p>3.  Do any of these symptoms apply to you? Vaginal pressure, Low-back pain, Frequent urination, Diarrhea, Increased vaginal discharge, Tightness in the lower abdomen
-        <b><%= @user.tri_2_3 %></b>
-      </p>
-
-      <ul>
-        <p> Comment for Trimester 2 </p>
-        <% @comments.each do |comment| %>
-            <% if comment.trimester_id == 2 %>
-                 <% if comment.doctor_id == nil %>
-                 <li><p> <%= "#{@user.first_name} " + comment.comment %></p></li>
-                     <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
-                 <%else%>
-                 <li><p> <%= "#{@doctor.first_name} " + comment.comment %> </p></li>
-                     <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
-                 <% end %>
-            <% end %>
-       <% end %>
-      </ul>
-      <% end %>
-
-      <% if @user.tri_3_1 != nil && @user.tri_3_2 != nil && @user.tri_3_3 != nil %>
-        <p> [ Third Trimester ] </p>
-
-        <p>1.Are you having headaches that are not relieved with over-the-counter
-          medications or have visual changes associated with them, persistent vomiting,
-          and upper abdominal pain?</p>
-          <b><%= @user.tri_3_1 %></b>
-
-        <p>2. Is there decreased movement from your baby?
-          <b><%= @user.tri_3_2 %></b>
-        </p>
-
-        <p>3. Do any of these changes apply to you?  Vaginal discharge to a pink or
-         reddish color, menstrual-like cramps, pressure in your pelvis or lower abdomen,
-         and contractions that last for at least an hour that aren’t Braxton Hicks contractions.
-          <b><%= @user.tri_3_3 %></b>
-        </p>
-
-      <ul>
-        <p> Comment for Trimester 3 </p>
-        <% @comments.each do |comment| %>
-            <% if comment.trimester_id == 3 %>
-                 <% if comment.doctor_id == nil %>
-                   <li><p> <%= "#{@user.first_name} " + comment.comment %></p></li>
-                       <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
-                 <%else%>
-                   <li><p> <%= "#{@doctor.first_name} " + comment.comment %> </p></li>
-                       <p class="time"><%= comment.created_at.in_time_zone('Eastern Time (US & Canada)').to_formatted_s(:long_ordinal) %></p>
-                 <% end %>
-            <% end %>
-       <% end %>
-      </ul>
-      <% end %>
-
-
-<% end %>
