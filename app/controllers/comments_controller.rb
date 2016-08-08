@@ -19,20 +19,16 @@ class CommentsController < ApplicationController
     @comment.commenter_id = current_user.id
 
     @comment.mother_id = @user.id
-    # if @user.mother == true
     if current_user.mother == false
-      #  @comment.mother_id = @user.id
        @comment.doctor_id = current_user.id
     end
 
-    # end
-    # @comment.commenter_id = @doctor_id
        @comment.trimester_id = @user.trimester
 
-    if @comment.save!
+    if @comment.save
        redirect_to user_path(@user), :flash => { :success => "Message" }
      else
-       render :index, :flash => { :fail => "failed!" }
+       redirect_to user_path(@user), :flash => { :fail => "failed!" }
      end
 
   end
